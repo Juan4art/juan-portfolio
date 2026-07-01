@@ -1,4 +1,5 @@
 <template>
+  <Analytics />
   <div class="relative min-h-screen w-full flex flex-col" :class="isControlsReady ? 'controls-ready' : ''">
     <!-- ── Preloader Overlay ────────────────────────────────────── -->
     <GridPreloader />
@@ -63,6 +64,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { Analytics } from '@vercel/analytics/vue'
 import GridPreloader from './components/GridPreloader.vue'
 import GlassNav from './components/GlassNav.vue'
 import PhysicsCursor from './components/PhysicsCursor.vue'
