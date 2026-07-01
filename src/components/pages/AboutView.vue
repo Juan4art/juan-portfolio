@@ -39,12 +39,12 @@
       <!-- Experience -->
         <div class="flex flex-col hover-stamp-block">
           <h2 class="text-5xl md:text-[3.5rem] lg:text-[4rem] font-archivo uppercase tracking-tighter leading-none mb-3">
-            <template v-for="({w,i}) in expBlock.title" :key="'et'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template>
+            <template v-for="({w,i}) in expBlock.title" :key="'et'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
           </h2>
           <ul class="text-sm md:text-base font-varela flex flex-col leading-relaxed tracking-tight text-white/90">
             <li>
-              <template v-for="({w,i}) in expBlock.role" :key="'er'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template>
-              &nbsp;<template v-for="({w,i}) in expBlock.date" :key="'ed'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template>
+              <template v-for="({w,i}) in expBlock.role" :key="'er'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
+              {{ ' ' }}<template v-for="({w,i}) in expBlock.date" :key="'ed'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
             </li>
           </ul>
         </div>
@@ -52,13 +52,13 @@
         <!-- Education -->
         <div class="flex flex-col hover-stamp-block">
           <h2 class="text-5xl md:text-[3.5rem] lg:text-[4rem] font-archivo uppercase tracking-tighter leading-none mb-3">
-            <template v-for="({w,i}) in eduBlock.title" :key="'edt'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template>
+            <template v-for="({w,i}) in eduBlock.title" :key="'edt'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
           </h2>
           <ul class="text-sm md:text-base font-varela flex flex-col leading-relaxed tracking-tight text-white/90">
             <li>
-              <template v-for="({w,i}) in eduBlock.degree" :key="'edd'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template><br>
-              <template v-for="({w,i}) in eduBlock.school" :key="'eds'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template>
-              &nbsp;<template v-for="({w,i}) in eduBlock.date" :key="'eddt'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template>
+              <template v-for="({w,i}) in eduBlock.degree" :key="'edd'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template><br>
+              <template v-for="({w,i}) in eduBlock.school" :key="'eds'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
+              {{ ' ' }}<template v-for="({w,i}) in eduBlock.date" :key="'eddt'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
             </li>
           </ul>
         </div>
@@ -66,24 +66,24 @@
         <!-- Programs -->
         <div class="flex flex-col hover-stamp-block">
           <h2 class="text-5xl md:text-[3.5rem] lg:text-[4rem] font-archivo uppercase tracking-tighter leading-none mb-3">
-            <template v-for="({w,i}) in progBlock.title" :key="'pt'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template>
+            <template v-for="({w,i}) in progBlock.title" :key="'pt'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
           </h2>
           <ul class="text-sm md:text-base font-varela flex flex-col leading-relaxed tracking-tight text-white/90">
-            <li><template v-for="({w,i}) in progBlock.line1" :key="'p1'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template></li>
-            <li><template v-for="({w,i}) in progBlock.line2" :key="'p2'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template></li>
-            <li><template v-for="({w,i}) in progBlock.line3" :key="'p3'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template></li>
+            <li><template v-for="({w,i}) in progBlock.line1" :key="'p1'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
+            <li><template v-for="({w,i}) in progBlock.line2" :key="'p2'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
+            <li><template v-for="({w,i}) in progBlock.line3" :key="'p3'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
           </ul>
         </div>
 
         <!-- Languages -->
         <div class="flex flex-col hover-stamp-block">
           <h2 class="text-5xl md:text-[3.5rem] lg:text-[4rem] font-archivo uppercase tracking-tighter leading-none mb-3">
-            <template v-for="({w,i}) in langBlock.title" :key="'lt'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template>
+            <template v-for="({w,i}) in langBlock.title" :key="'lt'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
           </h2>
           <ul class="text-sm md:text-base font-varela flex flex-col leading-relaxed tracking-tight text-white/90">
-            <li><template v-for="({w,i}) in langBlock.italian" :key="'li'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template></li>
-            <li><template v-for="({w,i}) in langBlock.english" :key="'le'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template></li>
-            <li><template v-for="({w,i}) in langBlock.spanish" :key="'ls'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span> </template></li>
+            <li><template v-for="({w,i}) in langBlock.italian" :key="'li'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
+            <li><template v-for="({w,i}) in langBlock.english" :key="'le'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
+            <li><template v-for="({w,i}) in langBlock.spanish" :key="'ls'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
           </ul>
         </div>
 
