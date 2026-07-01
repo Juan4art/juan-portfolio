@@ -1,0 +1,210 @@
+/* Fonts moved to index.html for performance */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .pixel-corners {
+    clip-path: polygon(
+      12px 0, calc(100% - 12px) 0,
+      calc(100% - 12px) 6px, calc(100% - 6px) 6px,
+      calc(100% - 6px) 12px, 100% 12px,
+      100% calc(100% - 12px), calc(100% - 6px) calc(100% - 12px),
+      calc(100% - 6px) calc(100% - 6px), calc(100% - 12px) calc(100% - 6px),
+      calc(100% - 12px) 100%, 12px 100%,
+      12px calc(100% - 6px), 6px calc(100% - 6px),
+      6px calc(100% - 12px), 0 calc(100% - 12px),
+      0 12px, 6px 12px,
+      6px 6px, 12px 6px
+    );
+  }
+  .interactive-card {
+    transform-style: preserve-3d;
+    transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+  }
+  .interactive-card:hover {
+    transform: rotateX(8deg) rotateY(8deg) scale(1.05);
+  }
+  .bg-noise {
+    /* Removed SVG noise for Firefox performance */
+  }
+
+  .bg-dusty-scratch {
+    /* Removed SVG noise for Firefox performance */
+    background-blend-mode: multiply;
+  }
+}
+
+/* ── DxBurst Custom Font ─────────────────────────────────────── */
+@font-face {
+  font-family: 'DxBurst';
+  src: url('/fonts/DxBurst-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'DxBurst';
+  src: url('/fonts/DxBurst-Smooth.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Base ────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #050505;
+  color: #ffffff;
+}
+
+/* ── Text Selection — hook yellow ───────────────────────────── */
+::selection {
+  background-color: #e4ef39;
+  color: #000000;
+}
+::-moz-selection {
+  background-color: #e4ef39;
+  color: #000000;
+}
+
+/* ── Hover Stamp — fluorescent yellow reveal on hover ──── */
+/* Hover OUT: instant restore */
+.hover-stamp {
+  background-color: transparent;
+  color: inherit;
+  -webkit-text-stroke: inherit;
+  text-stroke: inherit;
+  padding: 0.04em 0.1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition:
+    background-color 0.15s ease 0s,
+    color 0.15s ease 0s;
+  cursor: default;
+}
+/* Hover IN: delayed ~0.5s before stamp appears */
+.hover-stamp:hover {
+  background-color: #e4ef39;
+  color: #000000;
+  -webkit-text-stroke: 0;
+  transition-delay: 0.45s;
+}
+
+/* ── Hover Stamp Block — word-by-word flood ───────── */
+.hover-stamp-block {
+  cursor: default;
+}
+/* Each word highlight span */
+.word-hl {
+  display: inline;
+  background-color: transparent;
+  color: inherit;
+  padding: 0.04em 0.05em;
+  margin: 0 -0.02em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+/* EXIT: instant — snaps off immediately */
+  transition: none;
+}
+/* ENTER: each word hard-snaps at its stagger delay — crisp typewriter pop */
+.hover-stamp-block:hover .word-hl {
+  background-color: #e4ef39;
+  color: #000000;
+  transition:
+    background-color 0s steps(1) calc(0.4s + var(--i, 0) * 0.007s),
+    color            0s steps(1) calc(0.4s + var(--i, 0) * 0.007s);
+}
+
+/* Subtle noise grain for dark mode */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 9999;
+  /* Removed SVG noise and color-dodge for performance */
+  opacity: 0.05;
+}
+
+@keyframes noise-jitter {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-5%, -5%); }
+  20%  { transform: translate(-10%, 5%); }
+  30%  { transform: translate(5%, -10%); }
+  40%  { transform: translate(-5%, 15%); }
+  50%  { transform: translate(-10%, 5%); }
+  60%  { transform: translate(15%, 0); }
+  70%  { transform: translate(0, 10%); }
+  80%  { transform: translate(-15%, 0); }
+  90%  { transform: translate(10%, 5%); }
+  100% { transform: translate(5%, 0); }
+}
+
+
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Sleek Dark Components ───────────────────────────── */
+@layer components {
+  .sleek-card {
+    @apply relative overflow-hidden;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .sleek-card:hover {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+  }
+
+  .sleek-pill {
+    @apply relative rounded-full;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .sleek-pill:hover {
+    background: rgba(40, 40, 40, 1);
+    border: 1px solid rgba(128, 0, 255, 0.5);
+    box-shadow: 0 0 15px rgba(128, 0, 255, 0.3);
+  }
+}
+
+/* ── Route transitions ───────────────────────────────────────── */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.6s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: scale(0.96) translateY(20px);
+  filter: blur(8px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: scale(1.04) translateY(-20px);
+  filter: blur(8px);
+}
