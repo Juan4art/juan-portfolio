@@ -1,7 +1,10 @@
+import { inject } from '@vercel/analytics'
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import App from './App.vue'
 import './assets/main.css'
+
+inject()
 
 import HomeView     from './components/pages/HomeView.vue'
 import AboutView    from './components/pages/AboutView.vue'

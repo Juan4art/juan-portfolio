@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tsparticles/vue3": "^4.0.5",
+    "@vercel/analytics": "^2.0.1",
     "gsap": "^3.15.0",
     "page-flip": "^2.0.7",
     "swiper": "^12.2.0",
