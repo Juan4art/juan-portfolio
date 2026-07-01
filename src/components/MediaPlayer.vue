@@ -3,13 +3,15 @@
     class="media-player fixed bottom-[12px] md:bottom-[20px] left-8 md:left-12 z-[9999] pointer-events-auto flex flex-col items-start gap-2"
     :class="isHidden ? 'media-player-hidden' : ''"
     @wheel.prevent="handleWheel"
+    @touchstart="handleTouchStart"
+    @touchend="handleTouchEnd"
   >
     <!-- Artist (Top) -->
     <div class="relative h-3 md:h-3.5 w-[200px] md:w-[300px] overflow-hidden text-[9px] md:text-[10px] uppercase tracking-widest font-mono select-none text-left transition-opacity duration-300"
          :class="isPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'">
       <Transition :name="scrollDirection === 'down' ? 'widget-scroll-down' : 'widget-scroll-up'">
         <span :key="currentTrack?.artist" class="absolute inset-0 pl-5 text-white/40 block truncate">
-          {{ currentTrack?.artist || 'Unknown' }}
+          {{ currentTrack?.artist || t.unknown }}
         </span>
       </Transition>
     </div>
@@ -36,7 +38,7 @@
          :class="isPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'">
       <Transition :name="scrollDirection === 'down' ? 'widget-scroll-down' : 'widget-scroll-up'">
         <span :key="currentTrack?.title" class="absolute inset-0 pl-5 text-[#FF6500] font-semibold block truncate">
-          {{ currentTrack?.title || 'No Track' }}
+          {{ currentTrack?.title || t.noTrack }}
         </span>
       </Transition>
     </div>
@@ -46,6 +48,9 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useAudio } from '../composables/useAudio.js'
+import { useLang } from '../composables/useLang.js'
+
+const { t } = useLang()
 
 const props = defineProps({
   isHidden: {
@@ -58,6 +63,31 @@ const { isPlaying, togglePlay, currentTrack, next, prev } = useAudio()
 
 const scrollDirection = ref('down')
 let wheelTimeout = null
+
+let touchStartY = 0
+let touchStartTime = 0
+
+const handleTouchStart = (e) => {
+  if (e.touches.length === 0) return
+  touchStartY = e.touches[0].clientY
+  touchStartTime = Date.now()
+}
+
+const handleTouchEnd = (e) => {
+  if (e.changedTouches.length === 0) return
+  const dy = e.changedTouches[0].clientY - touchStartY
+  const dt = Date.now() - touchStartTime
+  
+  if (Math.abs(dy) > 30 && dt < 800) {
+    if (dy > 0) {
+      scrollDirection.value = 'down'
+      next()
+    } else {
+      scrollDirection.value = 'up'
+      prev()
+    }
+  }
+}
 
 const handleWheel = (e) => {
   if (wheelTimeout) return

@@ -16,6 +16,15 @@ const translations = {
     // ── Home hero ──
     taglineTitle: 'Crafting digital experiences',
     taglineSub:   'Merging code and design to build things that wow.',
+    heroCollection: 'Collection of Visual Works',
+    heroBlustoodio: 'Blustoodio // 2026',
+    heroScroll: 'Scroll to Explore',
+    heroHover: 'Hover to Explore',
+    heroPlaying: 'PLAYING',
+    panelAbout: 'About Me',
+    panelMusic: 'My Playlist',
+    unknown: 'Unknown',
+    noTrack: 'No Track',
 
     // ── Back link ──
     backHome: 'Back to Home',
@@ -155,6 +164,15 @@ const translations = {
     // ── Home hero ──
     taglineTitle: 'Creo esperienze digitali',
     taglineSub:   'Unendo codice e design per creare cose che stupiscono.',
+    heroCollection: 'Collezione di Opere Visive',
+    heroBlustoodio: 'Blustoodio // 2026',
+    heroScroll: 'Scorri per Esplorare',
+    heroHover: 'Tocca per Esplorare',
+    heroPlaying: 'IN RIPRODUZIONE',
+    panelAbout: 'Chi Sono',
+    panelMusic: 'La Mia Playlist',
+    unknown: 'Sconosciuto',
+    noTrack: 'Nessuna Traccia',
 
     // ── Back link ──
     backHome: 'Torna alla Home',

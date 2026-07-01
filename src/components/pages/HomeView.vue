@@ -9,13 +9,13 @@
 
     <!-- ── Background Typography ── -->
     <div class="absolute left-10 top-1/2 -translate-y-1/2 text-white/30 text-[10px] font-mono tracking-[0.25em] uppercase" style="text-shadow: 0 2px 10px rgba(255,255,255,0.2);">
-      Collection of Visual Works
+      {{ t.heroCollection }}
     </div>
     <div class="absolute right-10 top-1/2 -translate-y-1/2 text-white/30 text-[10px] font-mono tracking-[0.25em] uppercase" style="text-shadow: 0 2px 10px rgba(255,255,255,0.2);">
-      Blustoodio // 2026
+      {{ t.heroBlustoodio }}
     </div>
     <div class="absolute bottom-12 left-1/2 -translate-x-1/2 text-white/20 text-[9px] font-mono tracking-[0.3em] uppercase">
-      Scroll to Explore
+      {{ t.heroScroll }}
     </div>
 
 
@@ -135,7 +135,7 @@
                       class="absolute top-[70%] left-1/2 -translate-x-1/2 text-white font-mono text-[10px] tracking-[0.2em] font-black uppercase whitespace-nowrap z-50 transition-opacity duration-500 bg-black/80 px-4 py-1.5 rounded-full border border-white/20"
                       :class="isHovered ? 'opacity-0' : 'opacity-100 animate-pulse'"
                     >
-                      Hover to Explore
+                      {{ t.heroHover }}
                     </div>
 
                     <!-- hitbox (click handled by pendulum wrapper) -->
@@ -225,7 +225,7 @@
 
                        <!-- Playing Indicator -->
                        <div v-if="isPlayingMusic" class="absolute bottom-10 left-1/2 -translate-x-1/2 text-[#fff] font-mono text-[11px] tracking-widest bg-black/90 px-4 py-1.5 rounded-full animate-pulse border border-[#ffd700]/30 shadow-[0_0_15px_rgba(255,215,0,0.2)]">
-                         PLAYING
+                         {{ t.heroPlaying }}
                        </div>
                      </div>
                      <!-- hitbox (click handled by pendulum wrapper) -->
@@ -269,14 +269,14 @@ const { t } = useLang()
 const sceneRef = ref(null)
 const pendulumRef = ref(null)
 
-const panels = [
-  { id: 0, slug: 'graphic-design',    label: 'About Me' },
-  { id: 3, slug: 'branding',          label: 'Brand design' },
-  { id: 1, slug: 'photography',       label: 'Photography' },
-  { id: 2, slug: 'creative-direction',label: 'freestyle' },
-  { id: 4, slug: 'publishings',       label: 'publishing' },
-  { id: 5, slug: 'music',             label: 'My Playlist' }
-]
+const panels = computed(() => [
+  { id: 0, slug: 'graphic-design',    label: t.value.panelAbout },
+  { id: 3, slug: 'branding',          label: t.value.categories['branding'].title },
+  { id: 1, slug: 'photography',       label: t.value.categories['photography'].title },
+  { id: 2, slug: 'creative-direction',label: t.value.categories['creative-direction'].title },
+  { id: 4, slug: 'publishings',       label: t.value.categories['publishings'].title },
+  { id: 5, slug: 'music',             label: t.value.panelMusic }
+])
 
 const { isPlaying: isPlayingMusic, togglePlay } = useAudio()
 
@@ -398,7 +398,7 @@ const handleKeychainClick = () => {
     return
   }
 
-  const panel = panels[idx]
+  const panel = panels.value[idx]
   // ID card (index 0) goes to About
   if (idx === 0) {
     goToAbout()
