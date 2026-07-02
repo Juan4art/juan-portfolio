@@ -34,8 +34,8 @@ const initYouTubeAPI = () => {
   window.onYouTubeIframeAPIReady = () => {
     isApiLoaded = true
     ytPlayer = new window.YT.Player('youtube-player-container', {
-      height: '0',
-      width: '0',
+      height: '1',
+      width: '1',
       videoId: tracks.value[0].videoId,
       playerVars: {
         'autoplay': 0,

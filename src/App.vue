@@ -55,7 +55,7 @@
       </span>
     </button>
 
-    <div id="youtube-player-container" class="hidden"></div>
+    <div id="youtube-player-container" class="absolute w-[1px] h-[1px] opacity-0 pointer-events-none -z-50 overflow-hidden"></div>
     <PhysicsCursor />
     <MediaPlayer :isHidden="isHeaderHidden || forceHideHeader" />
   </div>

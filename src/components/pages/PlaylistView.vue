@@ -130,10 +130,6 @@
         </span>
       </div>
 
-      <!-- Add track hint -->
-      <p class="text-center text-white/15 text-xs font-varela tracking-widest uppercase mt-8">
-        {{ lang === 'it' ? 'Modifica i brani in PlaylistView.vue' : 'Edit tracks in PlaylistView.vue' }}
-      </p>
     </div>
 
   </section>
