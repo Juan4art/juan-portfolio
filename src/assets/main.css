@@ -25,9 +25,7 @@
   .interactive-card:hover {
     transform: rotateX(8deg) rotateY(8deg) scale(1.05);
   }
-  .bg-noise {
-    /* Removed SVG noise for Firefox performance */
-  }
+  /* .bg-noise removed for Firefox performance */
 
   .bg-dusty-scratch {
     /* Removed SVG noise for Firefox performance */
@@ -83,7 +81,6 @@ body {
   background-color: transparent;
   color: inherit;
   -webkit-text-stroke: inherit;
-  text-stroke: inherit;
   padding: 0.04em 0.1em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
