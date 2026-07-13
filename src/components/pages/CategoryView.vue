@@ -25,7 +25,7 @@
     <FreestyleMarqueeGallery v-else-if="slug === 'creative-direction'" :category="cat" @open-detail="openCustomDetail" />
 
     <!-- ── Photography Swipe Gallery ──────────────────────── -->
-    <PhotoStripGallery v-else-if="slug === 'photography'" :category="cat" />
+    <PhotoStripGallery v-else-if="slug === 'photography'" :category="cat" @open-detail="openCustomDetail" />
 
     <!-- ── Poem Narrative View ──────────────────────── -->
     <PoemNarrativeView v-else-if="slug === 'publishings'" :category="cat" />
@@ -91,58 +91,57 @@
       <div class="shrink-0 w-8 md:w-32"></div>
     </div>
 
-    <!-- ── Full-screen detail overlay ──────────────────────── -->
+    <!-- ── Full-screen detail overlay (Modern Style) ──────────────────────── -->
     <transition name="overlay-anim">
       <div
         v-if="activeItem"
-        class="fixed inset-0 z-[9998] flex items-center justify-center p-4 md:p-10 select-text"
-        @click.self="closeDetail"
+        class="fixed inset-0 z-[9998] flex items-center justify-center select-text bg-[#030303]"
       >
-        <!-- Backdrop -->
-        <div class="absolute inset-0 bg-[#050505]/95 animate-fade-in" @click="closeDetail" />
-
-        <!-- Modal Content -->
-        <div class="relative w-full max-w-2xl bg-[#0a0a0a]/80 backdrop-blur-2xl border border-white/10 p-6 sm:p-8 rounded-2xl shadow-2xl flex flex-col transition-transform duration-300 transform scale-100"
-             style="max-height: 90vh;">
+        <!-- Minimal Full-Screen Modal Content -->
+        <div class="relative w-full h-full flex flex-col pointer-events-none">
           
-          <!-- Close button -->
-          <button @click="closeDetail" 
-                  aria-label="Close detail"
-                  class="absolute top-4 right-4 z-50 p-2 text-white/60 hover:text-white transition-colors focus:outline-none">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-
-          <!-- Header -->
-          <div class="mb-4 pr-8">
-            <h3 class="font-archivo text-3xl sm:text-4xl text-white font-bold leading-tight tracking-tight mb-2">{{ activeItem.title }}</h3>
+          <!-- Top Bar -->
+          <div class="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-start z-[9999] pointer-events-none mix-blend-difference">
+            <div class="flex flex-col gap-1 max-w-xl pointer-events-none text-white">
+              <h3 class="font-archivo text-lg md:text-xl uppercase tracking-widest">{{ activeItem.title }}</h3>
+              <p v-if="activeItem.desc" class="opacity-50 font-mono text-xs md:text-sm line-clamp-2 md:line-clamp-none mt-1">{{ activeItem.desc }}</p>
+            </div>
+            
+            <!-- Close button -->
+            <button @click="closeDetail" 
+                    class="pointer-events-auto text-white/50 hover:text-white uppercase font-mono text-xs tracking-[0.2em] transition-colors focus:outline-none flex items-center gap-2">
+              <span>Close</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
 
           <!-- Swiper Container -->
           <swiper
             v-if="activeItem.gallery"
-            :modules="[SwiperNavigation, SwiperPagination]"
+            :modules="[SwiperPagination, SwiperKeyboard, SwiperMousewheel]"
             :slides-per-view="1"
-            :space-between="20"
-            navigation
+            :space-between="0"
+            :initial-slide="activeItem.initialSlide || 0"
+            :loop="true"
+            :keyboard="{ enabled: true }"
+            :mousewheel="true"
+            :grab-cursor="true"
             pagination
-            class="sleek-swiper w-full aspect-square bg-white/5 rounded-xl border border-white/5 mb-6 overflow-hidden"
+            class="sleek-swiper-fullscreen w-full h-full pointer-events-auto"
           >
-            <swiper-slide v-for="(img, idx) in activeItem.gallery" :key="idx">
-              <template v-if="img.endsWith('.mp4')">
-                <video :src="img" :title="activeItem.title" class="w-full h-full object-contain" autoplay loop muted playsinline disablePictureInPicture></video>
-              </template>
-              <template v-else>
-                <img :src="img" :alt="activeItem.title" class="w-full h-full object-contain" />
-              </template>
+            <swiper-slide v-for="(img, idx) in activeItem.gallery" :key="idx" class="w-full h-full cursor-auto" @click.self="closeDetail">
+              <div class="w-full h-full flex items-center justify-center p-8 md:p-24 pointer-events-none" @click.self="closeDetail">
+                <template v-if="img.endsWith('.mp4')">
+                  <video :src="img" :title="activeItem.title" class="max-w-full max-h-full object-contain pointer-events-auto cursor-default" autoplay loop muted playsinline disablePictureInPicture @click.stop></video>
+                </template>
+                <template v-else>
+                  <img :src="img" :alt="activeItem.title" class="max-w-full max-h-full object-contain pointer-events-auto cursor-default" @click.stop />
+                </template>
+              </div>
             </swiper-slide>
           </swiper>
-
-          <!-- Description -->
-          <div class="overflow-y-auto custom-scrollbar pr-2 max-h-40">
-            <p class="text-white/80 font-varela text-base leading-relaxed">{{ activeItem.desc }}</p>
-          </div>
         </div>
       </div>
     </transition>
@@ -154,9 +153,8 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useLang } from '../../composables/useLang.js'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation as SwiperNavigation, Pagination as SwiperPagination } from 'swiper/modules'
+import { Pagination as SwiperPagination, Keyboard as SwiperKeyboard, Mousewheel as SwiperMousewheel } from 'swiper/modules'
 import 'swiper/css'
-import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import HorizontalRectGallery from '../HorizontalRectGallery.vue'
 import PhotoStripGallery from '../PhotoStripGallery.vue'
@@ -234,16 +232,21 @@ const openDetail = (index) => {
     title: p.item.title,
     tag: p.item.tag,
     desc: p.item.desc,
-    gallery: p.item.gallery || [getProjectImage(slug.value, p.index)]
+    gallery: p.item.gallery || [getProjectImage(slug.value, p.index)],
+    initialSlide: 0
   }
 }
 
-const openCustomDetail = (itemData) => {
+const openCustomDetail = (payload) => {
+  const project = payload.project || payload
+  const initialSlide = payload.initialSlide || 0
+  
   activeItem.value = {
-    title: itemData.title,
-    tag: itemData.tag,
-    desc: itemData.desc,
-    gallery: itemData.gallery
+    title: project.title,
+    tag: project.tag,
+    desc: project.desc,
+    gallery: project.gallery,
+    initialSlide: initialSlide
   }
 }
 
@@ -269,43 +272,24 @@ watch(slug, () => { activeItem.value = null })
   background: rgba(255, 255, 255, 0.4);
 }
 
-/* Sleek Glassmorphic Swiper Styling */
-:deep(.sleek-swiper .swiper-button-next),
-:deep(.sleek-swiper .swiper-button-prev) {
-  color: white;
-  background: rgba(0, 0, 0, 0.4);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
+/* Sleek Modern Swiper Styling for Fullscreen */
+:deep(.sleek-swiper-fullscreen .swiper-pagination) {
+  bottom: 24px !important;
 }
 
-:deep(.sleek-swiper .swiper-button-next:hover),
-:deep(.sleek-swiper .swiper-button-prev:hover) {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
-}
-
-:deep(.sleek-swiper .swiper-button-next::after),
-:deep(.sleek-swiper .swiper-button-prev::after) {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-:deep(.sleek-swiper .swiper-pagination-bullet) {
+:deep(.sleek-swiper-fullscreen .swiper-pagination-bullet) {
   background: white;
-  opacity: 0.3;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  opacity: 0.2;
+  width: 32px;
+  height: 2px;
+  border-radius: 0;
   transition: all 0.3s ease;
 }
 
-:deep(.sleek-swiper .swiper-pagination-bullet-active) {
+:deep(.sleek-swiper-fullscreen .swiper-pagination-bullet-active) {
   opacity: 1;
-  background: white;
-  transform: scale(1.3);
+  background: #FF6500;
+  box-shadow: 0 0 8px rgba(255, 101, 0, 0.6);
 }
 
 .card-spread {

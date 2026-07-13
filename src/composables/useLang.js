@@ -40,7 +40,6 @@ const translations = {
         title: 'freestyle',
         description: 'Guiding the creative vision — from concept to final delivery across all touchpoints.',
         items: [
-          { title: 'JAZZ — Poster Series',     tag: 'Poster', desc: 'Illustrated poster for a Parisian jazz event. Neon typography and nocturnal composition.', gallery: ['/images/Jazz3.webp', '/images/Jazz2.webp', '/images/Jazz1.webp'] },
           { title: 'Solene — Film Poster',      tag: 'Film',    desc: 'Photo shooting and post-production for the horror movie poster campaign \'Solene\'.', gallery: ['/images/Solene1.webp', '/images/Solene2.webp', '/images/Solene3.webp', '/images/Solene4.webp'] },
           { title: 'Poster Brutalista — Series',     tag: 'Editorial',    desc: 'Brutalist poster series on philosophical and cultural themes.', gallery: ['/images/GD_brutalista1.webp', '/images/GD_brutalista2.webp', '/images/GD_brutalista3.webp', '/images/GD_brutalista4.webp', '/images/GD_brutalista5.webp'] },
           { title: 'Fragments d\'un Tapis Amoureux', tag: 'Exhibition', desc: 'Illustrated posters and visual research for the LABA & MITA exhibition. Imaginary maps on the Silk Road.', gallery: ['/images/Tapis1.webp', '/images/Tapis4.webp', '/images/Tapis3.webp'] },
@@ -56,19 +55,21 @@ const translations = {
         title: 'Photography',
         description: 'Capturing moments and moods — editorial, architectural, and portrait photography.',
         items: [
-          { title: 'Live Music Portraits', tag: 'Portrait', desc: 'Concert and live music portrait photography capturing the raw energy.', gallery: ['/images/Concert4.webp', '/images/Concert3.webp', '/images/Concert2.webp'] },
-          { title: 'Motorcycle Series',       tag: 'Action',     desc: 'Dynamic action shots of motorcycles in motion.', gallery: ['/images/Moto1.webp', '/images/Moto2.webp', '/images/Moto3.webp', '/images/Moto4.webp', '/images/Moto5.webp', '/images/Raticosa1.webp'] },
-          { title: 'Studio Sessions',   tag: 'Studio',  desc: 'Professional studio photography sessions with controlled lighting.', gallery: ['/images/Snickers19.webp', '/images/Snickers3.webp'] },
+          { title: 'Live Music Portraits', tag: 'Concert', desc: 'Live concert photography and musical portraits capturing raw energy.', gallery: ['/images/Concert2.webp', '/images/Concert3.webp', '/images/Concert4.webp'] },
+          { title: 'Studio Sessions',   tag: 'Studio',  desc: 'Professional studio photography sessions with controlled lighting.', gallery: ['/images/Snickers19.webp', '/images/Snickers3.webp', '/images/Snickers20.webp', '/images/Snickers21.webp', '/images/Snickers26.webp', '/images/Snickers25.webp', '/images/Snickers18.webp', '/images/Snickers24.webp', '/images/Snickers17.webp', '/images/Snickers22.webp', '/images/Snickers7.webp'] },
           { title: 'Personal Portraits', tag: 'Portrait', desc: 'Personal portrait sessions and close-ups.', gallery: ['/images/Portrait1.webp', '/images/Portrait2.webp'] },
+          { title: 'Motorcycle Series',       tag: 'Action',     desc: 'Dynamic action shots of motorcycles in motion.', gallery: ['/images/Moto1.webp', '/images/Moto2.webp', '/images/Moto3.webp', '/images/Moto4.webp', '/images/Moto5.webp', '/images/Raticosa1.webp'] },
+          { title: 'Disco Ranch', tag: 'Event', desc: 'Event photography for Disco Ranch.', gallery: ['/images/DiscoRanch_2.webp', '/images/DiscoRanch_4.webp', '/images/DiscoRanch_New.webp', '/images/DiscoRanch_5.webp', '/images/DiscoRanch_8.webp', '/images/DiscoRanch_9.webp', '/images/DiscoRanch_13.webp', '/images/DiscoRanch_15.webp'] },
         ],
       },
       'branding': {
         title: 'Brand design',
         description: 'Building memorable brand identities <br> — strategy, visual systems, and guidelines.',
         items: [
-          { title: 'Snickers — Luxury Rebrand', tag: 'Rebranding', desc: 'Luxury rebrand concept for Snickers. Stationery, packaging, and editorial layout.', cover: '/images/Snickers7.webp', gallery: ['/images/Snickers20.webp', '/images/Snickers21.webp', '/images/Snickers26.webp', '/images/Snickers25.webp', '/images/Snickers18.webp', '/images/Snickers24.webp', '/images/Snickers17.webp', '/images/Snickers22.webp', '/images/Snickers19.webp', '/images/Snickers7.webp', '/images/Snickers1.webp', '/images/Snickers23.webp'] },
-          { title: 'Piccola Orchestra Materana',       tag: 'Packaging', desc: 'Art direction and packaging for the CD. Custom freehand lettering.', gallery: ['/images/Matera1.webp', '/images/Matera2.webp', '/images/Matera3.webp', '/images/Matera4.webp', '/images/Matera5.webp'] },
-          { title: 'Nevia a Giorni Scalzi',        tag: 'Music',  desc: 'Cover, CD and vinyl for the album \'Giorni Scalzi\' by Nevia.', gallery: ['/images/GiorniScalzi1.webp', '/images/GiorniScalzi2.webp', '/images/GiorniScalzi3.webp', '/images/NeviaVIP.png'] },
+          { title: 'Snickers — Luxury Rebrand', tag: 'Rebranding', tagline: 'Luxury rebrand concept for Snickers.', desc: 'Luxury rebrand concept for Snickers. Stationery, packaging, and editorial layout.', cover: '/images/Snickers7.webp', gallery: ['/images/Snickers20.webp', '/images/Snickers21.webp', '/images/Snickers26.webp', '/images/Snickers25.webp', '/images/Snickers18.webp', '/images/Snickers24.webp', '/images/Snickers17.webp', '/images/Snickers22.webp', '/images/Snickers19.webp', '/images/Snickers7.webp'] },
+          { title: 'Piccola Orchestra Materana',       tag: 'Packaging', tagline: 'Art direction and packaging for the CD.', desc: 'Art direction and packaging for the CD. Custom freehand lettering.', gallery: ['/images/Matera1.webp', '/images/Matera2.webp', '/images/Matera3.webp', '/images/Matera4.webp', '/images/Matera5.webp'] },
+          { title: 'HATE-IT, forget-it!', tag: 'Art Direction', tagline: 'An anti post-it against the modern world.', desc: 'We live in a society where everything must be filtered and moderated. We are taught to hide our anger and annoyance, but where does what we hold back go? HATE-IT is born as a gesture of liberation. It\'s an invitation to express what you hate, without fear or judgment: an \'anti post-it\' on which to deposit your thoughts. You can stick it, let it go, fix it outside yourself. A simple and cathartic act to move hatred from the body to the space.', cover: '/images/Preview_Hate_it.webp', gallery: ['/images/HateIt_img_20.webp', '/images/HateIt_img_21.webp', '/images/HateIt_img_22.webp', '/images/HateIt_img_23.webp', '/images/HateIt_img_24.webp', '/images/HateIt_img_25.webp', '/images/HateIt_img_26.webp', '/images/HateIt_img_27.webp', '/images/HateIt_img_28.webp', '/images/HateIt_img_29.webp', '/images/HateIt_img_30.webp'] },
+          { title: 'Nevia a Giorni Scalzi',        tag: 'Music', tagline: 'Cover, CD and vinyl design for Nevia.', desc: 'Cover, CD and vinyl for the album \'Giorni Scalzi\' by Nevia.', gallery: ['/images/GiorniScalzi1.webp', '/images/GiorniScalzi2.webp', '/images/GiorniScalzi3.webp', '/images/NeviaVIP.png'] },
         ],
       },
       'publishings': {
@@ -121,7 +122,7 @@ const translations = {
       { id: 2, title: 'JAZZ — Poster Series',    category: 'Editorial',     description: 'Illustrated poster for a Parisian jazz event. Neon typography and nocturnal composition.', tags: ['Poster', 'Typography', 'Illustration'] },
       { id: 3, title: 'Nevia a Giorni Scalzi',  category: 'Music',      description: 'Cover, CD and vinyl for the album \'Giorni Scalzi\' by Nevia.', tags: ['Cover Art', 'Vinyl', 'CD'] },
       { id: 4, title: 'Solene — Film Poster', category: 'Film',   description: 'Photo shooting and post-production for the horror movie poster campaign \'Solene\'.', tags: ['Photography', 'Post-production', 'Poster'] },
-
+      { id: 5, title: 'HATE-IT, forget-it!', category: 'Branding', description: 'An invite to express your hatred without fear or judgment. Write it on a HATE-IT — an anti post-it to physically detach from negative thoughts. A simple but cathartic act.', tags: ['Art Direction', 'Concept', 'Copywriting'] },
     ],
 
     // ── About page ──
@@ -188,7 +189,6 @@ const translations = {
         title: 'freestyle',
         description: 'Guidare la visione creativa — dal concept alla consegna finale su tutti i touchpoint.',
         items: [
-          { title: 'JAZZ — Poster Series',          tag: 'Poster',  desc: 'Poster illustrato per un evento jazz parigino. Tipografia a insegna luminosa e composizione notturna con musicisti sui balconi.', gallery: ['/images/Jazz3.webp', '/images/Jazz2.webp', '/images/Jazz1.webp'] },
           { title: 'Solene — Film Poster',       tag: 'Film',    desc: 'Shooting fotografico e post-produzione per la campagna poster del film horror \'Solene\'.', gallery: ['/images/Solene1.webp', '/images/Solene2.webp', '/images/Solene3.webp', '/images/Solene4.webp'] },
           { title: 'Poster Brutalista — Series',         tag: 'Editorial',     desc: 'Serie di poster in stile brutalista su temi filosofici e culturali.', gallery: ['/images/GD_brutalista1.webp', '/images/GD_brutalista2.webp', '/images/GD_brutalista3.webp', '/images/GD_brutalista4.webp', '/images/GD_brutalista5.webp'] },
           { title: 'Fragments d\'un Tapis Amoureux', tag: 'Exhibition', desc: 'Poster illustrati e ricerca visiva per la mostra LABA & MITA. Mappe immaginarie sulla via della seta.', gallery: ['/images/Tapis1.webp', '/images/Tapis4.webp', '/images/Tapis3.webp'] },
@@ -204,19 +204,21 @@ const translations = {
         title: 'Fotografia',
         description: 'Catturare momenti e atmosfere — fotografia editoriale, architettonica e di ritratto.',
         items: [
-          { title: 'Ritratti Live Music',    tag: 'Ritratto', desc: 'Fotografia di concerti e ritratti musicali dal vivo catturando l\'energia cruda.', gallery: ['/images/Concert4.webp', '/images/Concert3.webp', '/images/Concert2.webp'] },
-          { title: 'Serie Motociclette',           tag: 'Action',     desc: 'Scatti dinamici d\'azione di motociclette in movimento.', gallery: ['/images/Moto1.webp', '/images/Moto2.webp', '/images/Moto3.webp', '/images/Moto4.webp', '/images/Moto5.webp', '/images/Raticosa1.webp'] },
-          { title: 'Sessioni in Studio',   tag: 'Studio', desc: 'Sessioni fotografiche professionali in studio con illuminazione controllata.', gallery: ['/images/Snickers19.webp', '/images/Snickers3.webp'] },
+          { title: 'Ritratti Live Music',   tag: 'Concerto', desc: 'Foto di concerti e ritratti musicali dal vivo catturando l\'energia cruda.', gallery: ['/images/Concert2.webp', '/images/Concert3.webp', '/images/Concert4.webp'] },
+          { title: 'Sessioni in Studio',   tag: 'Studio', desc: 'Sessioni fotografiche professionali in studio con illuminazione controllata.', gallery: ['/images/Snickers19.webp', '/images/Snickers3.webp', '/images/Snickers20.webp', '/images/Snickers21.webp', '/images/Snickers26.webp', '/images/Snickers25.webp', '/images/Snickers18.webp', '/images/Snickers24.webp', '/images/Snickers17.webp', '/images/Snickers22.webp', '/images/Snickers7.webp'] },
           { title: 'Ritratti Personali',     tag: 'Ritratto', desc: 'Sessioni di ritratto personale e primi piani.', gallery: ['/images/Portrait1.webp', '/images/Portrait2.webp'] },
+          { title: 'Serie Motociclette',           tag: 'Action',     desc: 'Scatti dinamici d\'azione di motociclette in movimento.', gallery: ['/images/Moto1.webp', '/images/Moto2.webp', '/images/Moto3.webp', '/images/Moto4.webp', '/images/Moto5.webp', '/images/Raticosa1.webp'] },
+          { title: 'Disco Ranch',     tag: 'Evento', desc: 'Fotografia dell\'evento Disco Ranch.', gallery: ['/images/DiscoRanch_2.webp', '/images/DiscoRanch_4.webp', '/images/DiscoRanch_New.webp', '/images/DiscoRanch_5.webp', '/images/DiscoRanch_8.webp', '/images/DiscoRanch_9.webp', '/images/DiscoRanch_13.webp', '/images/DiscoRanch_15.webp'] },
         ],
       },
       'branding': {
         title: 'Brand design',
         description: 'Costruire identità di marca memorabili <br> — strategia, sistemi visivi e linee guida.',
         items: [
-          { title: 'Snickers — Luxury Rebrand', tag: 'Rebranding', desc: 'Concept per il rebrand di lusso di Snickers. Immagine coordinata, packaging e layout editoriale.', cover: '/images/Snickers7.webp', gallery: ['/images/Snickers20.webp', '/images/Snickers21.webp', '/images/Snickers26.webp', '/images/Snickers25.webp', '/images/Snickers18.webp', '/images/Snickers24.webp', '/images/Snickers17.webp', '/images/Snickers22.webp', '/images/Snickers19.webp', '/images/Snickers7.webp', '/images/Snickers1.webp', '/images/Snickers23.webp'] },
-          { title: 'Piccola Orchestra Materana',          tag: 'Packaging', desc: 'Art direction e packaging per il CD della Piccola Orchestra. Lettering custom a mano libera.', gallery: ['/images/Matera1.webp', '/images/Matera2.webp', '/images/Matera3.webp', '/images/Matera4.webp', '/images/Matera5.webp'] },
-          { title: 'Nevia a Giorni Scalzi',            tag: 'Musica',   desc: 'Copertina, CD e vinile per l\'album \'Giorni Scalzi\' di Nevia.', gallery: ['/images/GiorniScalzi1.webp', '/images/GiorniScalzi2.webp', '/images/GiorniScalzi3.webp', '/images/NeviaVIP.png'] },
+          { title: 'Snickers — Luxury Rebrand', tag: 'Rebranding', tagline: 'Concept di rebranding di lusso per Snickers.', desc: 'Concept per il rebrand di lusso di Snickers. Immagine coordinata, packaging e layout editoriale.', cover: '/images/Snickers7.webp', gallery: ['/images/Snickers20.webp', '/images/Snickers21.webp', '/images/Snickers26.webp', '/images/Snickers25.webp', '/images/Snickers18.webp', '/images/Snickers24.webp', '/images/Snickers17.webp', '/images/Snickers22.webp', '/images/Snickers19.webp', '/images/Snickers7.webp'] },
+          { title: 'Piccola Orchestra Materana', tag: 'Packaging', tagline: 'Art direction e packaging per il CD.', desc: 'Art direction e packaging per il CD della Piccola Orchestra. Lettering custom a mano libera.', gallery: ['/images/Matera1.webp', '/images/Matera2.webp', '/images/Matera3.webp', '/images/Matera4.webp', '/images/Matera5.webp'] },
+          { title: 'HATE-IT, forget-it!', tag: 'Art Direction', tagline: 'Un anti post-it contro il mondo moderno.', desc: 'Viviamo in una società in cui tutto deve essere filtrato e moderato. Ci insegnano a nascondere rabbia e fastidio, ma dove finisce ciò che tratteniamo? HATE-IT nasce come gesto di liberazione. È un invito a dire ciò che odi, senza paura né giudizio: un \'anti post-it\' su cui depositare il tuo pensiero. Puoi attaccarlo, lasciarlo andare, fissarlo fuori da te. Un atto semplice e catartico per spostare l\'odio dal corpo allo spazio.', cover: '/images/Preview_Hate_it.webp', gallery: ['/images/HateIt_img_20.webp', '/images/HateIt_img_21.webp', '/images/HateIt_img_22.webp', '/images/HateIt_img_23.webp', '/images/HateIt_img_24.webp', '/images/HateIt_img_25.webp', '/images/HateIt_img_26.webp', '/images/HateIt_img_27.webp', '/images/HateIt_img_28.webp', '/images/HateIt_img_29.webp', '/images/HateIt_img_30.webp'] },
+          { title: 'Nevia a Giorni Scalzi', tag: 'Musica', tagline: 'Copertina, CD e vinile per l\'album di Nevia.', desc: 'Copertina, CD e vinile per l\'album \'Giorni Scalzi\' di Nevia.', gallery: ['/images/GiorniScalzi1.webp', '/images/GiorniScalzi2.webp', '/images/GiorniScalzi3.webp', '/images/NeviaVIP.png'] },
         ],
       },
       'publishings': {
@@ -269,7 +271,7 @@ const translations = {
       { id: 2, title: 'JAZZ — Poster Series',    category: 'Editoria',     description: 'Poster illustrato per un evento jazz parigino. Tipografia a insegna luminosa.', tags: ['Poster', 'Typography', 'Illustration'] },
       { id: 3, title: 'Nevia a Giorni Scalzi',  category: 'Musica',      description: 'Copertina, CD e vinile per l\'album \'Giorni Scalzi\' di Nevia.', tags: ['Cover Art', 'Vinyl', 'CD'] },
       { id: 4, title: 'Solene — Film Poster', category: 'Film',   description: 'Shooting fotografico e post-produzione per la campagna poster del film horror \'Solene\'.', tags: ['Photography', 'Post-production', 'Poster'] },
-
+      { id: 5, title: 'HATE-IT, forget-it!', category: 'Branding', description: 'Un invito a dire ciò che odi, senza paura né giudizio. Scrivilo su un HATE-IT — un anti post-it per distaccarsi fisicamente dai pensieri negativi. Un atto semplice ma catartico.', tags: ['Art Direction', 'Concept', 'Copywriting'] },
     ],
 
     // ── About page ──

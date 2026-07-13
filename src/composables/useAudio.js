@@ -7,7 +7,7 @@ const tracks = ref([
   { title: 'Praise The Lord (Da Shine)', artist: 'A$AP Rocky', genre: 'Hip-Hop', duration: '3:28', videoId: '_eDpH4hMW1o' },
   { title: 'MY LOVE SONG 2 (Feat. Coez, Frah Quintale)', artist: 'Salmo & Noyz Narcos', genre: 'Rap Italiano', duration: '3:12', videoId: 'w6sYc-ZZQ6c' },
   { title: 'Brivido', artist: 'Marracash & Guè', genre: 'Rap Italiano', duration: '3:48', videoId: 'QHD5ScEAmFI' },
-  { title: 'La Canzone Nostra', artist: 'Mace, Blanco, Salmo', genre: 'Rap Italiano', duration: '3:57', videoId: 'XE6IV6xseQ4' },
+  { title: 'La Canzone Nostra', artist: 'Mace, Blanco, Salmo', genre: 'Rap Italiano', duration: '3:57', videoId: 'XE6lV6xseQ4' },
   { title: 'Dark Light', artist: 'Night Lovell', genre: 'Dark Trap', duration: '3:03', videoId: 'HTp5PH8ot6Q' },
   { title: 'Space Cadet ft. Gunna', artist: 'Metro Boomin', genre: 'Hip-Hop', duration: '3:23', videoId: 'qBWhc4qbsjo' },
   { title: 'My Love Song', artist: 'Noyz Narcos', genre: 'Rap Italiano', duration: '3:10', videoId: '-ynZN3p6FH8' }
@@ -63,7 +63,7 @@ const onPlayerStateChange = (event) => {
   } else if (event.data === window.YT.PlayerState.PAUSED || event.data === window.YT.PlayerState.ENDED) {
     isPlaying.value = false
   }
-  
+
   if (event.data === window.YT.PlayerState.ENDED) {
     next()
   }

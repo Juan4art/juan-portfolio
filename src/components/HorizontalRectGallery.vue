@@ -39,7 +39,7 @@
           </h2>
           
           <p class="font-varela text-sm md:text-base text-white/80 max-w-2xl leading-relaxed line-clamp-2 md:line-clamp-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150 drop-shadow-md">
-            {{ item.desc }}
+            {{ item.tagline || item.desc }}
           </p>
         </div>
       </div>
@@ -53,23 +53,28 @@
       >
         <div class="modal-content flex flex-col flex-1 max-w-[1600px] mx-auto w-full" @click.self="isModalOpen = false">
           <!-- Modal Header -->
-          <div class="flex justify-between items-center mb-8 shrink-0" @click.self="isModalOpen = false">
+          <div class="flex justify-between items-center mb-6 shrink-0" @click.self="isModalOpen = false">
             <h2 class="text-white font-archivo text-3xl md:text-5xl uppercase tracking-tighter pointer-events-none">{{ activeCard.title }}</h2>
             <button @click="isModalOpen = false" class="text-white/60 hover:text-[#e4ef39] transition-transform duration-300 hover:rotate-90 hover:scale-110 focus:outline-none">
               <svg class="w-8 h-8 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
           </div>
 
+          <!-- Description / Explanatory text -->
+          <div v-if="activeCard.desc" class="mb-10 max-w-4xl" @click.self="isModalOpen = false">
+            <p class="text-white/80 font-varela text-base md:text-lg leading-relaxed whitespace-pre-wrap">{{ activeCard.desc }}</p>
+          </div>
+
           <!-- Grid Layout -->
-          <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 pb-20" @click.self="isModalOpen = false">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 pb-20" @click.self="isModalOpen = false">
             <div 
               v-for="(img, idx) in activeCard.gallery" 
               :key="idx" 
-              class="w-full bg-gray-900 border-2 border-black overflow-hidden relative group aspect-[4/5] shadow-[4px_4px_0px_rgba(0,0,0,1)] modal-grid-item cursor-zoom-in"
+              class="w-full bg-gray-900 border-2 border-black overflow-hidden relative group aspect-auto sm:aspect-square md:aspect-[4/5] shadow-[4px_4px_0px_rgba(0,0,0,1)] modal-grid-item cursor-zoom-in"
               :style="{ transitionDelay: isModalOpen ? `${0.15 + (idx * 0.08)}s` : '0s' }"
               @click="expandedImageIdx = idx"
             >
-              <img :src="img" class="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-700" />
+              <img :src="img" class="w-full h-auto sm:h-full object-contain sm:object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-700 block" />
             </div>
           </div>
           
@@ -153,7 +158,7 @@ const openDetail = (index) => {
   if (!item) return
   
   activeCard.value = {
-    title: item.title,
+    ...item,
     gallery: item.gallery || [item.cover]
   }
   isModalOpen.value = true
