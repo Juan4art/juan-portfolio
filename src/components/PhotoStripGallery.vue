@@ -259,8 +259,6 @@ onUnmounted(() => {
 }
 
 .photo-row {
-  display: flex;
-  flex-direction: row;
   height: 50vh;
   gap: 0;
 }
