@@ -74,7 +74,7 @@
               :style="{ transitionDelay: isModalOpen ? `${0.15 + (idx * 0.08)}s` : '0s' }"
               @click="$emit('open-detail', { project: activeCard, initialSlide: idx })"
             >
-              <img :src="img" class="w-full h-auto sm:h-full object-contain sm:object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-700 block" />
+              <img :src="img" :alt="cat?.title || 'Project Image'" class="w-full h-auto sm:h-full object-contain sm:object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-700 block" />
             </div>
           </div>
           

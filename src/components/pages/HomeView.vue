@@ -42,7 +42,7 @@
          }">
          
       <!-- JeansFront Background Image (Mathematically fits screen height) -->
-      <img src="/JeansFront.webp" class="absolute max-w-none pointer-events-none opacity-100 will-change-transform" style="will-change: transform, opacity;"
+      <img src="/JeansFront.webp" alt="Jeans Background Texture" class="absolute max-w-none pointer-events-none opacity-100 will-change-transform" style="will-change: transform, opacity;"
            :style="{
              height: isMobile ? '160vh' : '100vh',
              width: 'auto',

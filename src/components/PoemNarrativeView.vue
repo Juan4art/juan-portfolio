@@ -107,7 +107,7 @@
                 <video :src="img" :class="['w-full h-auto object-contain', isGridStyle ? 'p-4' : '']" autoplay loop muted playsinline disablePictureInPicture></video>
               </template>
               <template v-else>
-                <img :src="img" :class="['w-full h-auto object-contain', isGridStyle ? 'p-4' : '']" />
+                <img :src="img" :alt="activeItem?.title || 'Publishing Image'" :class="['w-full h-auto object-contain', isGridStyle ? 'p-4' : '']" />
               </template>
             </div>
           </div>

@@ -37,7 +37,7 @@
         
         <!-- Blurred background cover -->
         <div class="absolute inset-0 z-0">
-          <img :src="`https://img.youtube.com/vi/${currentTrack.videoId}/mqdefault.jpg`" 
+          <img :src="`https://img.youtube.com/vi/${currentTrack.videoId}/mqdefault.jpg`" :alt="currentTrack.title" 
                class="w-full h-full object-cover scale-150 blur-3xl opacity-20 transition-all duration-700" 
                :class="isPlaying ? 'scale-[1.6] opacity-40' : ''" />
           <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent"></div>
@@ -55,7 +55,7 @@
             <div class="absolute inset-0 rounded-full border-[72px] border-white/5 z-20 pointer-events-none"></div>
             <!-- Center hole -->
             <div class="absolute inset-0 m-auto w-4 h-4 bg-[#050505] rounded-full z-30 shadow-inner"></div>
-            <img :src="`https://img.youtube.com/vi/${currentTrack.videoId}/mqdefault.jpg`" 
+            <img :src="`https://img.youtube.com/vi/${currentTrack.videoId}/mqdefault.jpg`" :alt="currentTrack.title" 
                  class="w-full h-full object-cover scale-[1.35] transition-transform duration-700" />
           </div>
 
@@ -104,7 +104,7 @@
         <!-- Artwork placeholder -->
         <div class="w-10 h-10 md:w-12 md:h-12 rounded-md shrink-0 overflow-hidden bg-white/5 border flex items-center justify-center transition-colors [transform:translateZ(0)] [-webkit-mask-image:-webkit-radial-gradient(white,black)]"
              :class="i === currentTrackIndex ? 'border-[#FF6500]/40' : 'border-white/10 group-hover:border-[#FF6500]/40'">
-          <img :src="`https://img.youtube.com/vi/${track.videoId}/mqdefault.jpg`" class="w-full h-full object-cover scale-[1.35]" />
+          <img :src="`https://img.youtube.com/vi/${track.videoId}/mqdefault.jpg`" :alt="track.title" class="w-full h-full object-cover scale-[1.35]" />
         </div>
 
         <!-- Title & Artist -->

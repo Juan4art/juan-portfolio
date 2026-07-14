@@ -32,11 +32,17 @@
       </router-view>
     </main>
 
+    <!-- Copyright Footer -->
+    <div class="fixed bottom-4 left-4 md:bottom-6 md:left-8 z-[100] text-[9px] tracking-[0.15em] uppercase font-mono text-white/30 pointer-events-none transition-opacity duration-500" :class="(isHeaderHidden || forceHideHeader) ? 'opacity-0' : 'opacity-100'">
+      &copy; {{ new Date().getFullYear() }} Juan Merla
+    </div>
+
     <!-- ── Bottom Nav ────────────────────────────────────── -->
     <GlassNav />
 
     <!-- ── Language toggle — responsive placement ──────────── -->
     <button
+      aria-label="Toggle language"
       class="lang-toggle fixed bottom-8 md:bottom-10 right-8 md:right-12 z-[9999] flex items-center gap-3 cursor-pointer select-none hover:scale-105 h-[40px] px-6 rounded-full border border-white/10 bg-black/95 hover:bg-black/100 hover:border-white/20 shadow-2xl"
       :class="(isHeaderHidden || forceHideHeader) ? 'lang-toggle-hidden' : ''"
       @click="toggleLang"

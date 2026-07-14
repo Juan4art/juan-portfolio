@@ -51,7 +51,7 @@
                     <video :src="item.gallery[0]" class="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-500" autoplay loop muted playsinline disablePictureInPicture></video>
                   </template>
                   <template v-else>
-                    <img :src="item.gallery[0]" class="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-500" draggable="false" />
+                    <img :src="item.gallery[0]" :alt="item.title" class="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-500" draggable="false" />
                   </template>
                   <div class="absolute inset-0 bg-black/50 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
                     <span class="text-[#d1ff00] font-mono uppercase tracking-widest text-sm border border-[#d1ff00] px-6 py-2 bg-black/60 rounded-none">View</span>
@@ -79,7 +79,7 @@
                     <video :src="item.gallery[0]" class="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-500" autoplay loop muted playsinline disablePictureInPicture></video>
                   </template>
                   <template v-else>
-                    <img :src="item.gallery[0]" class="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-500" draggable="false" />
+                    <img :src="item.gallery[0]" :alt="item.title" class="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-500" draggable="false" />
                   </template>
                   <div class="absolute inset-0 bg-black/50 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
                     <span class="text-[#d1ff00] font-mono uppercase tracking-widest text-sm border border-[#d1ff00] px-6 py-2 bg-black/60 rounded-none">View</span>
@@ -107,7 +107,7 @@
                     <video :src="item.gallery[0]" class="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-500" autoplay loop muted playsinline disablePictureInPicture></video>
                   </template>
                   <template v-else>
-                    <img :src="item.gallery[0]" class="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-500" draggable="false" />
+                    <img :src="item.gallery[0]" :alt="item.title" class="w-full h-full object-cover filter grayscale group-hover/card:grayscale-0 transition-all duration-500" draggable="false" />
                   </template>
                   <div class="absolute inset-0 bg-black/50 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
                     <span class="text-[#d1ff00] font-mono uppercase tracking-widest text-sm border border-[#d1ff00] px-6 py-2 bg-black/60 rounded-none">View</span>
