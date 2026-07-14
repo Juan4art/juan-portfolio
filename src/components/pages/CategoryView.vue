@@ -19,7 +19,7 @@
     </div>
 
     <!-- ── Branding Horizontal Gallery ──────────────────────── -->
-    <HorizontalRectGallery v-if="slug === 'branding'" :category="cat" class="w-full z-10" />
+    <HorizontalRectGallery v-if="slug === 'branding'" :category="cat" class="w-full z-10" @open-detail="openCustomDetail" />
 
     <!-- ── Freestyle Image Trail Gallery ──────────────────────── -->
     <FreestyleMarqueeGallery v-else-if="slug === 'creative-direction'" :category="cat" @open-detail="openCustomDetail" />
@@ -95,13 +95,13 @@
     <transition name="overlay-anim">
       <div
         v-if="activeItem"
-        class="fixed inset-0 z-[9998] flex items-center justify-center select-text bg-[#030303]"
+        class="fixed inset-0 z-[99999] flex items-center justify-center select-text bg-[#030303]"
       >
         <!-- Minimal Full-Screen Modal Content -->
         <div class="relative w-full h-full flex flex-col pointer-events-none">
           
           <!-- Top Bar -->
-          <div class="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-start z-[9999] pointer-events-none mix-blend-difference">
+          <div class="absolute top-0 left-0 w-full p-6 md:p-10 flex justify-between items-start z-[100000] pointer-events-none mix-blend-difference">
             <div class="flex flex-col gap-1 max-w-xl pointer-events-none text-white">
               <h3 class="font-archivo text-lg md:text-xl uppercase tracking-widest">{{ activeItem.title }}</h3>
               <p v-if="activeItem.desc" class="opacity-50 font-mono text-xs md:text-sm line-clamp-2 md:line-clamp-none mt-1">{{ activeItem.desc }}</p>
@@ -142,6 +142,15 @@
               </div>
             </swiper-slide>
           </swiper>
+
+          <!-- Swipe / Scroll Indicator -->
+          <div v-if="activeItem.gallery && activeItem.gallery.length > 1"
+               class="absolute bottom-16 left-1/2 -translate-x-1/2 z-[100000] pointer-events-none flex flex-col items-center gap-3 text-white mix-blend-difference">
+            <span class="font-mono text-[10px] tracking-[0.3em] uppercase opacity-70">Scroll / Swipe</span>
+            <div class="w-16 h-[1px] bg-white/20 relative overflow-hidden">
+              <div class="absolute inset-0 bg-white w-full animate-[swipe-line_2s_ease-in-out_infinite]"></div>
+            </div>
+          </div>
         </div>
       </div>
     </transition>
@@ -343,5 +352,11 @@ watch(slug, () => { activeItem.value = null })
 .overlay-anim-leave-to .overlay-card {
   opacity: 0;
   transform: scale(0.96) translateY(12px);
+}
+
+@keyframes swipe-line {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
 }
 </style>

@@ -77,10 +77,11 @@
       <div 
         v-if="isModalOpen && activeItem" 
         class="fixed inset-0 z-[99999] bg-[#050505]/95 flex flex-col overflow-y-auto backdrop-blur-md custom-scrollbar"
+        @click.self="closeGallery"
       >
-        <div class="w-full max-w-7xl mx-auto p-6 md:p-12 flex flex-col min-h-screen">
+        <div class="w-full max-w-7xl mx-auto p-6 md:p-12 flex flex-col min-h-screen" @click.self="closeGallery">
           <!-- Header -->
-          <div class="flex justify-between items-start md:items-center mb-8 shrink-0">
+          <div class="flex justify-between items-start md:items-center mb-8 shrink-0" @click.self="closeGallery">
             <div>
               <span class="text-[#e4ef39] font-mono text-sm tracking-[0.2em] uppercase block mb-2">{{ activeItem.tag }}</span>
               <h2 class="text-white font-archivo text-3xl md:text-5xl uppercase tracking-tighter">{{ activeItem.title }}</h2>
@@ -91,22 +92,22 @@
           </div>
 
           <!-- Extended Concept Description -->
-          <div class="mb-12 max-w-4xl text-white/80 font-varela text-base md:text-lg leading-relaxed whitespace-pre-wrap">
+          <div class="mb-12 max-w-4xl text-white/80 font-varela text-base md:text-lg leading-relaxed whitespace-pre-wrap" @click.self="closeGallery">
             {{ activeItem.extendedDesc || activeItem.desc }}
           </div>
 
           <!-- Gallery Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 pb-20 items-start">
+          <div :class="['pb-20 items-start w-full', isGridStyle ? 'grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8' : 'grid grid-cols-1 gap-8 md:gap-12']" @click.self="closeGallery">
             <div 
               v-for="(img, idx) in activeItem.gallery" 
               :key="idx" 
               class="w-full bg-[#111] border border-white/10"
             >
               <template v-if="img.endsWith('.mp4') || img.endsWith('.webm') || img.endsWith('.wbm')">
-                <video :src="img" class="w-full h-auto object-contain p-4" autoplay loop muted playsinline disablePictureInPicture></video>
+                <video :src="img" :class="['w-full h-auto object-contain', isGridStyle ? 'p-4' : '']" autoplay loop muted playsinline disablePictureInPicture></video>
               </template>
               <template v-else>
-                <img :src="img" class="w-full h-auto object-contain p-4" />
+                <img :src="img" :class="['w-full h-auto object-contain', isGridStyle ? 'p-4' : '']" />
               </template>
             </div>
           </div>
@@ -137,6 +138,12 @@ const macroProject = computed(() => {
 
 const isModalOpen = ref(false)
 const activeItem = ref(null)
+
+const isGridStyle = computed(() => {
+  if (!activeItem.value) return false
+  const title = activeItem.value.title.toLowerCase()
+  return title.includes('nevia') || title.includes('faro')
+})
 
 const openGallery = (item) => {
   activeItem.value = item

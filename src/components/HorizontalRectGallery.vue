@@ -72,37 +72,13 @@
               :key="idx" 
               class="w-full bg-gray-900 border-2 border-black overflow-hidden relative group aspect-auto sm:aspect-square md:aspect-[4/5] shadow-[4px_4px_0px_rgba(0,0,0,1)] modal-grid-item cursor-zoom-in"
               :style="{ transitionDelay: isModalOpen ? `${0.15 + (idx * 0.08)}s` : '0s' }"
-              @click="expandedImageIdx = idx"
+              @click="$emit('open-detail', { project: activeCard, initialSlide: idx })"
             >
               <img :src="img" class="w-full h-auto sm:h-full object-contain sm:object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-700 block" />
             </div>
           </div>
           
-          <!-- Lightbox Overlay (With Fade-Scale Animation and Arrows) -->
-          <transition name="fade-scale">
-            <div 
-              v-if="expandedImageIdx !== null"
-              class="fixed inset-0 z-[99999] bg-black/95 flex flex-col items-center justify-center p-4"
-              @click="expandedImageIdx = null"
-            >
-              <img :src="activeCard.gallery[expandedImageIdx]" class="max-w-[95vw] max-h-[90vh] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)]" @click.stop />
-              
-              <!-- Prev Arrow -->
-              <button @click.stop="prevImage" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white bg-black/50 p-2 md:p-4 rounded-full border border-white/30 hover:bg-white hover:text-black transition-colors cursor-pointer">
-                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-              </button>
-              
-              <!-- Next Arrow -->
-              <button @click.stop="nextImage" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white bg-black/50 p-2 md:p-4 rounded-full border border-white/30 hover:bg-white hover:text-black transition-colors cursor-pointer">
-                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-              </button>
-
-              <!-- Close Button -->
-              <button class="absolute top-6 right-6 md:top-10 md:right-10 text-white bg-black/50 p-2 md:p-3 rounded-full border border-white/30 hover:bg-white hover:text-black transition-colors cursor-pointer" @click.stop="expandedImageIdx = null">
-                <svg class="w-6 h-6 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-              </button>
-            </div>
-          </transition>
+          <!-- Lightbox removed in favor of CategoryView full-screen Swiper -->
         </div>
       </div>
     </transition>
@@ -126,32 +102,14 @@ const displayItems = computed(() => props.category?.items || [])
 
 const isModalOpen = ref(false)
 const activeCard = ref(null)
-const expandedImageIdx = ref(null)
 
 watch(isModalOpen, (isOpen) => {
   if (isOpen) {
     window.dispatchEvent(new Event('modal-open'))
   } else {
     window.dispatchEvent(new Event('modal-close'))
-    setTimeout(() => {
-      expandedImageIdx.value = null
-    }, 300)
   }
 })
-
-const prevImage = () => {
-  if (expandedImageIdx.value !== null && activeCard.value?.gallery) {
-    const len = activeCard.value.gallery.length;
-    expandedImageIdx.value = (expandedImageIdx.value - 1 + len) % len;
-  }
-}
-
-const nextImage = () => {
-  if (expandedImageIdx.value !== null && activeCard.value?.gallery) {
-    const len = activeCard.value.gallery.length;
-    expandedImageIdx.value = (expandedImageIdx.value + 1) % len;
-  }
-}
 
 const openDetail = (index) => {
   const item = displayItems.value[index]
@@ -206,16 +164,7 @@ const openDetail = (index) => {
 .modal-grid-item:nth-child(7) { transition-delay: 0.35s; }
 .modal-grid-item:nth-child(8) { transition-delay: 0.4s; }
 
-/* Fade-Scale Animation for Lightbox */
-.fade-scale-enter-active,
-.fade-scale-leave-active {
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.fade-scale-enter-from,
-.fade-scale-leave-to {
-  opacity: 0;
-  transform: scale(0.95);
-}
+
 
 .modal-scale-enter-active .modal-grid-item {
   transition-property: opacity, transform;

@@ -2,15 +2,12 @@ import { ref } from 'vue'
 
 const isPlaying = ref(false)
 const tracks = ref([
-  { title: 'Daechwita', artist: 'Agust D (Suga)', genre: 'K-Rap', duration: '3:45', videoId: '65XIZDJ24_s' },
-  { title: 'God\'s Menu', artist: 'Stray Kids', genre: 'K-Pop/Urban', duration: '3:06', videoId: 'TQTlCHxyuu8' },
-  { title: 'Praise The Lord (Da Shine)', artist: 'A$AP Rocky', genre: 'Hip-Hop', duration: '3:28', videoId: '_eDpH4hMW1o' },
-  { title: 'MY LOVE SONG 2 (Feat. Coez, Frah Quintale)', artist: 'Salmo & Noyz Narcos', genre: 'Rap Italiano', duration: '3:12', videoId: 'w6sYc-ZZQ6c' },
-  { title: 'Brivido', artist: 'Marracash & Guè', genre: 'Rap Italiano', duration: '3:48', videoId: 'QHD5ScEAmFI' },
-  { title: 'La Canzone Nostra', artist: 'Mace, Blanco, Salmo', genre: 'Rap Italiano', duration: '3:57', videoId: 'XE6lV6xseQ4' },
-  { title: 'Dark Light', artist: 'Night Lovell', genre: 'Dark Trap', duration: '3:03', videoId: 'HTp5PH8ot6Q' },
-  { title: 'Space Cadet ft. Gunna', artist: 'Metro Boomin', genre: 'Hip-Hop', duration: '3:23', videoId: 'qBWhc4qbsjo' },
-  { title: 'My Love Song', artist: 'Noyz Narcos', genre: 'Rap Italiano', duration: '3:10', videoId: '-ynZN3p6FH8' }
+  { title: 'MY LOVE SONG', artist: 'Noyz Narcos', genre: 'Rap Italiano', duration: '3:10', videoId: 'xu4B37Au0aE' },
+  { title: 'Complicated', artist: 'Avril Lavigne', genre: 'Pop Punk', duration: '4:12', videoId: '5NPBIwQyPWE' },
+  { title: 'Baby One More Time', artist: 'Britney Spears', genre: 'Pop', duration: '3:30', videoId: 'nbmVTIYkbOo' },
+  { title: 'Amélie m\'a dit', artist: 'Alizée', genre: 'Pop', duration: '3:51', videoId: 'JJ6clbNFCJM' },
+  { title: 'WOKE UP', artist: 'XG', genre: 'Hip-Hop', duration: '3:24', videoId: '5sT20edl02I' },
+  { title: 'Fuyu no hanashi', artist: 'Given', genre: 'Anime', duration: '3:40', videoId: '48jOu3tTXbo' }
 ])
 const currentTrackIndex = ref(0)
 const currentTrack = ref(tracks.value[0])
