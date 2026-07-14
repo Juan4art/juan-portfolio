@@ -32,13 +32,14 @@
       </router-view>
     </main>
 
-    <!-- Copyright Footer -->
-    <div class="fixed bottom-4 left-4 md:bottom-6 md:left-8 z-[100] text-[9px] tracking-[0.15em] uppercase font-mono text-white/30 pointer-events-none transition-opacity duration-500" :class="(isHeaderHidden || forceHideHeader) ? 'opacity-0' : 'opacity-100'">
-      &copy; {{ new Date().getFullYear() }} Juan Merla
-    </div>
-
     <!-- ── Bottom Nav ────────────────────────────────────── -->
     <GlassNav />
+
+    <!-- Copyright Footer -->
+    <div class="fixed bottom-4 left-4 md:bottom-6 md:left-8 z-[100] text-[9px] tracking-[0.15em] uppercase font-mono pointer-events-none transition-all duration-500" 
+         :class="[(isHeaderHidden || forceHideHeader) ? 'opacity-0' : 'opacity-100', isPlaying ? 'text-white/10 blur-[1px]' : 'text-white/30']">
+      &copy; {{ new Date().getFullYear() }} Juan Merla
+    </div>
 
     <!-- ── Language toggle — responsive placement ──────────── -->
     <button
@@ -74,9 +75,11 @@ import GlassNav from './components/GlassNav.vue'
 import PhysicsCursor from './components/PhysicsCursor.vue'
 import MediaPlayer from './components/MediaPlayer.vue'
 import { useLang } from './composables/useLang.js'
+import { useAudio } from './composables/useAudio.js'
 import { useRouter } from 'vue-router'
 
 const { lang, t, toggleLang } = useLang()
+const { isPlaying } = useAudio()
 const router = useRouter()
 
 const goTo = (path) => {
