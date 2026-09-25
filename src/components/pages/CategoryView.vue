@@ -27,8 +27,10 @@
     <!-- ── Photography Swipe Gallery ──────────────────────── -->
     <PhotoStripGallery v-else-if="slug === 'photography'" :category="cat" @open-detail="openCustomDetail" />
 
-    <!-- ── Poem Narrative View ──────────────────────── -->
-    <PoemNarrativeView v-else-if="slug === 'publishings'" :category="cat" />
+    <!-- ── Magazine Gallery View (Publishings) ──────────────────────── -->
+    <MagazineGalleryView v-else-if="slug === 'publishings'" :category="cat" @open-detail="openCustomDetail" />
+
+
 
 
     <!-- ── Dynamic Vertical Project Gallery (Strict Brutalist Grid) ────────── -->
@@ -91,10 +93,19 @@
       <div class="shrink-0 w-8 md:w-32"></div>
     </div>
 
+    <!-- ── Flipbook Viewer (Publishings) ──────────────────────── -->
+    <transition name="overlay-anim">
+      <FlipbookViewer 
+        v-if="activeItem && slug === 'publishings' && !activeItem.isMacroProject"
+        :magazine="activeItem"
+        @close="closeDetail"
+      />
+    </transition>
+
     <!-- ── Full-screen detail overlay (Modern Style) ──────────────────────── -->
     <transition name="overlay-anim">
       <div
-        v-if="activeItem"
+        v-if="activeItem && (slug !== 'publishings' || activeItem.isMacroProject)"
         class="fixed inset-0 z-[99999] flex items-center justify-center select-text bg-[#030303]"
       >
         <!-- Minimal Full-Screen Modal Content -->
@@ -117,9 +128,14 @@
             </button>
           </div>
 
-          <!-- Swiper Container -->
+          <!-- PoemNarrativeView (Macro Project Layout) -->
+          <div v-if="activeItem.isMacroProject" class="w-full h-full overflow-y-auto pointer-events-auto custom-scrollbar relative z-[10]">
+            <PoemNarrativeView :category="{ items: [activeItem] }" />
+          </div>
+
+          <!-- Swiper Container (Standard Layout) -->
           <swiper
-            v-if="activeItem.gallery"
+            v-else-if="activeItem.gallery"
             :modules="[SwiperPagination, SwiperKeyboard, SwiperMousewheel]"
             :slides-per-view="1"
             :space-between="0"
@@ -168,7 +184,9 @@ import 'swiper/css/pagination'
 import HorizontalRectGallery from '../HorizontalRectGallery.vue'
 import PhotoStripGallery from '../PhotoStripGallery.vue'
 import FreestyleMarqueeGallery from '../FreestyleMarqueeGallery.vue'
+import MagazineGalleryView from '../MagazineGalleryView.vue'
 import PoemNarrativeView from '../PoemNarrativeView.vue'
+import FlipbookViewer from '../FlipbookViewer.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -255,7 +273,10 @@ const openCustomDetail = (payload) => {
     tag: project.tag,
     desc: project.desc,
     gallery: project.gallery,
-    initialSlide: initialSlide
+    cover: project.cover,
+    initialSlide: initialSlide,
+    isMacroProject: project.isMacroProject,
+    subProjects: project.subProjects
   }
 }
 

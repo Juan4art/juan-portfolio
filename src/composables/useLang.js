@@ -76,16 +76,33 @@ const translations = {
         title: 'publishing',
         description: 'Curated editorial projects — books, zines, and digital publications.',
         items: [
-          { 
-            title: 'Testo & Specchio - Matrix Project', 
-            tag: 'Multi-disciplinary', 
-            desc: 'An overarching project derived from a poignant poem exploring mental suffering, expressed through multiple visual mediums.', 
-            cover: '/images/Faro4.webp', 
+          {
+            title: 'The Biome',
+            tag: 'Magazine',
+            desc: 'A university Graphic Design III project exploring environmentalism and our planet.',
+            cover: '/images/eco/page-01.jpg',
+            gallery: [
+              '/images/eco/page-01.jpg', '/images/eco/page-02.jpg', '/images/eco/page-03.jpg', '/images/eco/page-04.jpg', '/images/eco/page-05.jpg', '/images/eco/page-06.jpg', '/images/eco/page-07.jpg', '/images/eco/page-08.jpg', '/images/eco/page-09.jpg', '/images/eco/page-10.jpg', '/images/eco/page-11.jpg', '/images/eco/page-12.jpg', '/images/eco/page-13.jpg', '/images/eco/page-14.jpg', '/images/eco/page-15.jpg', '/images/eco/page-16.jpg', '/images/eco/page-17.jpg', '/images/eco/page-18.jpg', '/images/eco/page-19.jpg', '/images/eco/page-20.jpg', '/images/eco/page-21.jpg', '/images/eco/page-22.jpg', '/images/eco/page-23.jpg', '/images/eco/page-24.jpg', '/images/eco/page-25.jpg', '/images/eco/page-26.jpg', '/images/eco/page-27.jpg', '/images/eco/page-28.jpg', '/images/eco/page-29.jpg', '/images/eco/page-30.jpg', '/images/eco/page-31.jpg', '/images/eco/page-32.jpg', '/images/eco/page-33.jpg', '/images/eco/page-34.jpg', '/images/eco/page-35.jpg', '/images/eco/page-36.jpg', '/images/eco/page-37.jpg', '/images/eco/page-38.jpg', '/images/eco/page-39.jpg', '/images/eco/page-40.jpg', '/images/eco/page-41.jpg', '/images/eco/page-42.jpg', '/images/eco/page-43.jpg', '/images/eco/page-44.jpg', '/images/eco/page-45.jpg', '/images/eco/page-46.jpg', '/images/eco/page-47.jpg', '/images/eco/page-48.jpg', '/images/eco/page-49.jpg', '/images/eco/page-50.jpg', '/images/eco/page-51.jpg', '/images/eco/page-52.jpg', '/images/eco/page-53.jpg', '/images/eco/page-54.jpg', '/images/eco/page-55.jpg', '/images/eco/page-56.jpg', '/images/eco/page-57.jpg', '/images/eco/page-58.jpg', '/images/eco/page-59.jpg', '/images/eco/page-60.jpg', '/images/eco/page-61.jpg', '/images/eco/page-62.jpg', '/images/eco/page-63.jpg', '/images/eco/page-64.jpg', '/images/eco/page-65.jpg', '/images/eco/page-66.jpg', '/images/eco/page-67.jpg', '/images/eco/page-68.jpg', '/images/eco/page-69.jpg', '/images/eco/page-70.jpg', '/images/eco/page-71.jpg', '/images/eco/page-72.jpg', '/images/eco/page-73.jpg', '/images/eco/page-74.jpg', '/images/eco/page-75.jpg', '/images/eco/page-76.jpg'
+            ]
+          },
+          {
+            title: 'The Walls Project',
+            tag: 'Narrative Universe',
+            desc: 'An overarching project exploring social isolation and inner resistance through multiple visual mediums: books and a newspaper.',
+            cover: '/images/WallsFront.webp',
+            isMacroProject: true,
             subProjects: [
+              { 
+                title: 'Testo & Specchio', 
+                tag: 'Book', 
+                desc: 'An overarching project derived from a poignant poem exploring mental suffering, expressed through multiple visual mediums.', 
+                cover: '/images/Faro4.webp', 
+                gallery: ['/images/Faro4.webp']
+              },
               { 
                 title: 'Walls — Selene Vexley', 
                 tag: 'Book', 
-                desc: 'A standalone dystopian novel exploring social isolation, inner resistance, and mental health under a totalitarian regime, expanding directly on the themes of suppressed human emotions.', 
+                desc: 'A standalone dystopian novel exploring social isolation, inner resistance, and mental health under a totalitarian regime.', 
                 extendedDesc: 'Walls follows the story of Raven Kael, a twenty-year-old trapped in a dystopian regime ruled by artificial intelligence and a \'Ministry of Wellness\'. In this world, psychological distress is \'cured\' through brutal isolation programs designed to suppress any rebellion. Confined to a sterile room with nothing but a bed, a desk, and a razor blade, Raven undergoes a treatment aimed at stripping away her humanity.\n\nHowever, upon discovering a secret resistance network, Raven embarks on a dual struggle: one against the regime\'s oppression and a much harder one against her own inner demons and depression. The story culminates in an ambiguous ending where Raven escapes government control, but her healing remains partial, leaving a fundamental question open: can one truly be free when still a prisoner of one\'s own mind? Walls is a profound reflection on social control and inner resistance.',
                 cover: '/images/WallsFront.webp', 
                 gallery: ['/images/Walls1.webp'] 
@@ -98,14 +115,6 @@ const translations = {
                 cover: '/images/Faro1.webp', 
                 previewBg: 'bg-[#f4f4f0]',
                 gallery: ['/images/Faro1.webp', '/images/Faro2.webp', '/images/Faro3.webp', '/images/Faro4.webp'] 
-              },
-              { 
-                title: 'Nevia a Giorni Scalzi', 
-                tag: 'Vinyl', 
-                desc: 'Cover, CD and vinyl for the album "Giorni Scalzi" by Nevia, serving as the musical embodiment of the project.', 
-                extendedDesc: 'Nevia is a new voice in the Italian indie scene, capable of transforming the fragilities and anger of new generations into music that heals and ignites. In her lyrics, everyday poetry and social critique coexist to give a voice to those who have none; dreams and sunsets mix with the fear and reality of not making ends meet, the fear of leaving the house, the fear of war, and the general indifference of society.\n\nNevia\'s weapon is her pen: direct, strong yet delicate. Nevia doesn\'t just want to speak for herself, nor shine for others if that light doesn\'t truly warm: her music is an act of resistance, an attempt at collective rebirth. Her style evokes intimate and sincere indie pop, presenting herself as a sharp yet reassuring voice—a hug for the soul but a scream for the body.\n\nThe name Nevia holds a dual meaning for the artist: the most common etymology is Niveus, a Latin word meaning \'of snow\', \'shining like snow\', but there is also a second etymology from Nevus, meaning stain or mark. Nevia thus perfectly represents the dualism of her songs and her purpose: critique but also rebirth.',
-                cover: '/images/GiorniScalzi1.webp', 
-                gallery: ['/images/GiorniScalzi1.webp', '/images/GiorniScalzi2.webp', '/images/GiorniScalzi3.webp', '/images/NeviaVIP.png'] 
               }
             ]
           }
@@ -225,16 +234,33 @@ const translations = {
         title: 'Editoria',
         description: 'Progetti editoriali curati — libri, zine e pubblicazioni digitali.',
         items: [
-          { 
-            title: 'Testo & Specchio - Progetto Matrice', 
-            tag: 'Multidisciplinare', 
-            desc: 'Un macro-progetto derivato da una poesia sulla sofferenza mentale, esplorato attraverso molteplici forme visive e mediatiche.', 
-            cover: '/images/Faro4.webp', 
+          {
+            title: 'The Biome',
+            tag: 'Magazine',
+            desc: 'Un progetto universitario di Graphic Design III incentrato sull\'ambientalismo e il nostro pianeta.',
+            cover: '/images/eco/page-01.jpg',
+            gallery: [
+              '/images/eco/page-01.jpg', '/images/eco/page-02.jpg', '/images/eco/page-03.jpg', '/images/eco/page-04.jpg', '/images/eco/page-05.jpg', '/images/eco/page-06.jpg', '/images/eco/page-07.jpg', '/images/eco/page-08.jpg', '/images/eco/page-09.jpg', '/images/eco/page-10.jpg', '/images/eco/page-11.jpg', '/images/eco/page-12.jpg', '/images/eco/page-13.jpg', '/images/eco/page-14.jpg', '/images/eco/page-15.jpg', '/images/eco/page-16.jpg', '/images/eco/page-17.jpg', '/images/eco/page-18.jpg', '/images/eco/page-19.jpg', '/images/eco/page-20.jpg', '/images/eco/page-21.jpg', '/images/eco/page-22.jpg', '/images/eco/page-23.jpg', '/images/eco/page-24.jpg', '/images/eco/page-25.jpg', '/images/eco/page-26.jpg', '/images/eco/page-27.jpg', '/images/eco/page-28.jpg', '/images/eco/page-29.jpg', '/images/eco/page-30.jpg', '/images/eco/page-31.jpg', '/images/eco/page-32.jpg', '/images/eco/page-33.jpg', '/images/eco/page-34.jpg', '/images/eco/page-35.jpg', '/images/eco/page-36.jpg', '/images/eco/page-37.jpg', '/images/eco/page-38.jpg', '/images/eco/page-39.jpg', '/images/eco/page-40.jpg', '/images/eco/page-41.jpg', '/images/eco/page-42.jpg', '/images/eco/page-43.jpg', '/images/eco/page-44.jpg', '/images/eco/page-45.jpg', '/images/eco/page-46.jpg', '/images/eco/page-47.jpg', '/images/eco/page-48.jpg', '/images/eco/page-49.jpg', '/images/eco/page-50.jpg', '/images/eco/page-51.jpg', '/images/eco/page-52.jpg', '/images/eco/page-53.jpg', '/images/eco/page-54.jpg', '/images/eco/page-55.jpg', '/images/eco/page-56.jpg', '/images/eco/page-57.jpg', '/images/eco/page-58.jpg', '/images/eco/page-59.jpg', '/images/eco/page-60.jpg', '/images/eco/page-61.jpg', '/images/eco/page-62.jpg', '/images/eco/page-63.jpg', '/images/eco/page-64.jpg', '/images/eco/page-65.jpg', '/images/eco/page-66.jpg', '/images/eco/page-67.jpg', '/images/eco/page-68.jpg', '/images/eco/page-69.jpg', '/images/eco/page-70.jpg', '/images/eco/page-71.jpg', '/images/eco/page-72.jpg', '/images/eco/page-73.jpg', '/images/eco/page-74.jpg', '/images/eco/page-75.jpg', '/images/eco/page-76.jpg'
+            ]
+          },
+          {
+            title: 'Progetto Walls',
+            tag: 'Universo Narrativo',
+            desc: 'Un progetto narrativo che esplora l\'isolamento sociale e la resistenza interiore attraverso molteplici forme visive: libri e giornali.',
+            cover: '/images/WallsFront.webp',
+            isMacroProject: true,
             subProjects: [
+              { 
+                title: 'Testo & Specchio', 
+                tag: 'Libro', 
+                desc: 'Un progetto derivato da una poesia sulla sofferenza mentale, esplorato attraverso molteplici forme visive e mediatiche.', 
+                cover: '/images/Faro4.webp', 
+                gallery: ['/images/Faro4.webp']
+              },
               { 
                 title: 'Walls — Selene Vexley', 
                 tag: 'Libro', 
-                desc: 'Un romanzo distopico che esplora temi di isolamento sociale, resistenza interiore e salute mentale sotto un regime totalitario, espandendo direttamente i concetti di repressione della poesia originale.', 
+                desc: 'Un romanzo distopico che esplora temi di isolamento sociale, resistenza interiore e salute mentale sotto un regime totalitario.', 
                 extendedDesc: 'Walls segue la storia di Raven Kael, una ventenne intrappolata in un regime distopico governato da un\'intelligenza artificiale e dal \'Ministero del Benessere\'. In questo mondo, il disagio psicologico viene \'curato\' attraverso brutali programmi di isolamento per sopprimere ogni ribellione. Confinata in una stanza sterile con nient\'altro che un letto, una scrivania e una lametta, Raven è sottoposta a un trattamento che mira a svuotarla della sua umanità.\n\nTuttavia, scoprendo una rete di resistenza segreta, Raven intraprende una duplice lotta: una contro l\'oppressione del regime e una, ben più ardua, contro i propri demoni interiori e la depressione. La storia culmina in un finale ambiguo in cui Raven sfugge al controllo governativo, ma la sua guarigione resta parziale, lasciando aperta una domanda fondamentale: si può essere davvero liberi se si resta prigionieri della propria mente? Walls è una profonda riflessione sul controllo sociale e sulla resistenza interiore.',
                 cover: '/images/WallsFront.webp', 
                 gallery: ['/images/Walls1.webp'] 
@@ -247,14 +273,6 @@ const translations = {
                 cover: '/images/Faro1.webp', 
                 previewBg: 'bg-[#f4f4f0]',
                 gallery: ['/images/Faro1.webp', '/images/Faro2.webp', '/images/Faro3.webp', '/images/Faro4.webp'] 
-              },
-              { 
-                title: 'Nevia a Giorni Scalzi', 
-                tag: 'Vinile', 
-                desc: 'Copertina, CD e vinile per l\'album "Giorni Scalzi" di Nevia, che funge da incarnazione musicale e uditiva dell\'intero progetto.', 
-                extendedDesc: 'Nevia è una nuova voce della scena indie italiana, capace di trasformare le fragilità e la rabbia delle nuove generazioni in musica che cura e accende. Nei suoi testi la poesia quotidiana e la denuncia sociale convivono per dare voce a chi non ne ha, sogni e tramonti si mischiano alla paura e realtà di non riuscire ad arrivare a fine mese, alla paura di uscire di casa, la paura della guerra e dell\'indifferenza generale della società.\n\nL\'arma di Nevia è la sua penna, diretta, forte ma delicata. Nevia non vuole solo parlare per sè, non vuole brillare per gli altri se quella luce non scalda davvero: la sua musica è atto di resistenza, tentativo di rinascita collettiva. Il suo stile richiama il pop indie intimo e sincero, per proporsi come voce tagliente ma allo stesso tempo rassicurante, un abbraccio per l\'anima ma un grido per il corpo.\n\nIl nome Nevia ha un doppio valore per l\'artista: l\'etimologia più comune è Niveus, parola latina che significa \'di neve\', \'splendente come la neve\', è però esistente anche una seconda etimologia, ovvero da Nevus, il cui significato è quello di macchia, segno. Nevia rappresenta perfettamente quindi il dualismo delle sue canzoni, del suo scopo, denuncia ma anche rinascita.',
-                cover: '/images/GiorniScalzi1.webp', 
-                gallery: ['/images/GiorniScalzi1.webp', '/images/GiorniScalzi2.webp', '/images/GiorniScalzi3.webp', '/images/NeviaVIP.png'] 
               }
             ]
           }

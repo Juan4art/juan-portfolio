@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full bg-transparent font-archivo text-white flex flex-col items-center pb-40 relative">
+  <div ref="containerRef" class="w-full bg-transparent font-archivo text-white flex flex-col items-center pb-40 relative">
     
     <!-- Intro: The Poem Concept -->
-    <div class="relative z-10 w-full max-w-4xl px-8 flex flex-col items-center text-center mt-20 mb-32">
+    <div class="relative z-10 w-full max-w-4xl px-8 flex flex-col items-center text-center mt-20 mb-32 anim-item">
       <h3 class="text-[#e4ef39] font-mono text-sm tracking-[0.3em] uppercase mb-8 flex items-center gap-4">
         <span class="w-12 h-px bg-[#e4ef39]"></span>
         {{ t.poemTitle }}
@@ -21,7 +21,7 @@
       <div 
         v-for="(item, idx) in macroProject.subProjects" 
         :key="idx"
-        class="flex flex-col md:flex-row items-center gap-12 md:gap-24"
+        class="flex flex-col md:flex-row items-center gap-12 md:gap-24 anim-item"
         :class="idx % 2 !== 0 ? 'md:flex-row-reverse' : ''"
       >
         <!-- Image Side -->
@@ -76,7 +76,7 @@
     <transition name="fade">
       <div 
         v-if="isModalOpen && activeItem" 
-        class="fixed inset-0 z-[99999] bg-[#050505]/95 flex flex-col overflow-y-auto backdrop-blur-md custom-scrollbar"
+        class="fixed inset-0 z-[200000] bg-[#050505]/95 flex flex-col overflow-y-auto backdrop-blur-md custom-scrollbar"
         @click.self="closeGallery"
       >
         <div class="w-full max-w-7xl mx-auto p-6 md:p-12 flex flex-col min-h-screen" @click.self="closeGallery">
@@ -119,8 +119,9 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, nextTick } from 'vue'
 import { useLang } from '../composables/useLang.js'
+import gsap from 'gsap'
 
 const { t } = useLang()
 
@@ -158,6 +159,24 @@ const closeGallery = () => {
   }, 300)
   document.body.style.overflow = ''
 }
+
+const containerRef = ref(null)
+
+onMounted(() => {
+  nextTick(() => {
+    if (containerRef.value) {
+      const elements = containerRef.value.querySelectorAll('.anim-item')
+      // Pre-set opacity to 0 to avoid flickering before GSAP starts
+      gsap.set(elements, { opacity: 0 })
+      
+      gsap.fromTo(
+        elements,
+        { opacity: 0, y: 60 },
+        { opacity: 1, y: 0, stagger: 0.15, duration: 1.2, ease: 'power3.out', delay: 0.2 }
+      )
+    }
+  })
+})
 </script>
 
 <style scoped>
