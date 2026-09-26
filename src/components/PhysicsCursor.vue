@@ -132,7 +132,7 @@ onUnmounted(() => {
   width: 32px;
   height: 32px;
   pointer-events: none;
-  z-index: 99999;
+  z-index: 9999999;
   transform-origin: center center;
   will-change: transform;
   display: flex;

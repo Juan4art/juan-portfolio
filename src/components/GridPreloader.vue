@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isVisible" class="fixed inset-0 z-[99999] pointer-events-auto overflow-hidden">
+  <div v-if="isVisible" class="fixed inset-0 z-[99999] pointer-events-auto overflow-hidden" :class="isReadyToStart ? 'cursor-pointer' : ''" @click="handleScreenClick">
     
     <!-- 6 Vertical Slices of the Screen -->
     <div v-for="i in 6" :key="i"
@@ -18,8 +18,15 @@
            <div class="mt-10 transition-opacity duration-500 flex flex-col items-center gap-2.5"
                 :class="isAnimatingOut ? 'opacity-0 scale-95' : 'opacity-100'">
              
-             <!-- Minimal Spinner -->
-             <div class="w-8 h-8 border-2 border-white/10 border-t-white rounded-full animate-spin"></div>
+             <template v-if="!isReadyToStart">
+               <!-- Minimal Spinner -->
+               <div class="w-8 h-8 border-2 border-white/10 border-t-white rounded-full animate-spin"></div>
+             </template>
+             <template v-else>
+               <span class="font-mono text-xs md:text-sm tracking-[0.3em] uppercase animate-pulse text-white/80">
+                 {{ lang === 'it' ? 'CLICCA PER INIZIARE' : 'CLICK TO START' }}
+               </span>
+             </template>
            </div>
          </div>
          
@@ -30,10 +37,20 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
+import { useLang } from '../composables/useLang.js'
 
 const isVisible = ref(true)
 const isAnimatingOut = ref(false)
 const fontsReady = ref(false)
+const isReadyToStart = ref(false)
+
+const { lang } = useLang()
+
+const handleScreenClick = () => {
+  if (isReadyToStart.value && !isAnimatingOut.value) {
+    startExitAnimation()
+  }
+}
 
 const criticalImages = [
   '/logo.webp',
@@ -77,7 +94,7 @@ onMounted(() => {
   
   if (totalCount === 0) {
     document.fonts.ready.then(() => {
-      startExitAnimation()
+      isReadyToStart.value = true
     })
     return
   }
@@ -85,7 +102,7 @@ onMounted(() => {
   // Failsafe: force exit after 30 seconds if images hang, so we give them plenty of time
   const timeoutId = setTimeout(() => {
     if (isVisible.value && !isAnimatingOut.value) {
-      startExitAnimation()
+      isReadyToStart.value = true
     }
   }, 30000)
 
@@ -97,7 +114,7 @@ onMounted(() => {
       clearTimeout(timeoutId)
       document.fonts.ready.then(() => {
         setTimeout(() => {
-          startExitAnimation()
+          isReadyToStart.value = true
         }, 500) // Small delay to let user see it's complete
       })
     }
