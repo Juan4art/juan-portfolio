@@ -91,9 +91,9 @@
                   </div>
 
                   <!-- Object 2: Camera (Photorealistic Image) - ROTATED 90 DEG -->
-                  <div v-if="index === 2" 
+                  <div v-if="index === 3" 
                        class="w-[225px] h-[350px] absolute top-[85px] left-1/2 -translate-x-1/2 group transition-all duration-300 pointer-events-none flex items-center justify-center"
-                       :class="{ 'brightness-110': hoveredPanelIndex === 2 }">
+                       :class="{ 'brightness-110': hoveredPanelIndex === 3 }">
                      <!-- Keyring Hole -->
                      <div class="absolute -top-3 left-1/2 w-6 h-6 rounded-full border-[4px] border-[#999] shadow-[inset_0_1px_2px_rgba(0,0,0,0.8)] bg-transparent z-20 pointer-events-none" style="transform: translateX(-50%) translateZ(2px);"></div>
                      <img src="/Camera.webp" alt="Photography Camera" class="w-[350px] h-[225px] max-w-none object-contain pointer-events-none -rotate-90" loading="lazy" />
@@ -143,12 +143,12 @@
                   </div>
 
                   <!-- Object 3: Photorealistic Lighter (3D Flipping Front/Back) -->
-                  <div v-if="index === 3" class="w-[100px] h-[280px] absolute top-[85px] left-1/2 -translate-x-1/2 pointer-events-none" style="perspective: 1000px;">
+                  <div v-if="index === 4" class="w-[100px] h-[280px] absolute top-[85px] left-1/2 -translate-x-1/2 pointer-events-none" style="perspective: 1000px;">
                     <div class="absolute -top-4 left-1/2 w-6 h-6 rounded-full border-[4px] border-[#999] shadow-[inset_0_1px_2px_rgba(0,0,0,0.8)] bg-transparent z-20 pointer-events-none" style="transform: translateX(-50%) translateZ(1px);"></div>
                     
                     <!-- Static Container -->
                     <div class="w-full h-full relative transition-all duration-300 pointer-events-none" 
-                         :class="{ 'brightness-110': hoveredPanelIndex === 3 }">
+                         :class="{ 'brightness-110': hoveredPanelIndex === 4 }">
                        <!-- Front (Purple OCHO) -->
                        <img src="/front.webp" alt="Creative Direction Front" class="absolute inset-0 w-full h-full object-contain pointer-events-none" style="will-change: filter;" loading="lazy" />
                     </div>
@@ -178,17 +178,17 @@
                   </div>
 
                   <!-- Object 5: 3D Magazine (Publishings) -->
-                  <div v-if="index === 4" 
+                  <div v-if="index === 2" 
                        class="w-[200px] h-[280px] absolute top-[85px] left-1/2 -translate-x-1/2 transition-all duration-300 pointer-events-none" 
                        style="perspective: 1200px;"
-                       :class="{ 'brightness-110': hoveredPanelIndex === 4 }">
+                       :class="{ 'brightness-110': hoveredPanelIndex === 2 }">
                     <!-- Keyring Hole -->
                     <div class="absolute -top-3 left-1/2 w-6 h-6 rounded-full border-[4px] border-[#999] shadow-[inset_0_1px_2px_rgba(0,0,0,0.8)] bg-transparent z-20 pointer-events-none" style="transform: translateX(-50%) translateZ(2px);"></div>
                     
                     <!-- 3D Book/Magazine Assembly -->
                     <div class="w-full h-full relative rounded-r-md transition-transform duration-700 ease-out pointer-events-none" 
                          style="transform-style: preserve-3d; transform: rotateY(2deg) rotateZ(-1deg);"
-                         :class="{ 'rotate-y-[8deg]': hoveredPanelIndex === 4 }">
+                         :class="{ 'rotate-y-[8deg]': hoveredPanelIndex === 2 }">
                       <!-- Page stack 2 -->
                       <div class="absolute inset-0 bg-[#e0e0e0] border-y border-r border-[#aaa] rounded-r-md transform translate-x-[4px] translate-y-[2px] -translate-z-[6px] shadow-[inset_-2px_0_4px_rgba(0,0,0,0.1)] pointer-events-none"></div>
                       <!-- Page stack 1 -->
@@ -201,7 +201,7 @@
                          <div class="absolute left-0 top-0 bottom-0 w-[15px] bg-gradient-to-r from-black/60 via-black/10 to-transparent pointer-events-none"></div>
                          <!-- Specular gloss overlay -->
                          <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 transition-opacity duration-700 pointer-events-none"
-                              :class="hoveredPanelIndex === 4 ? 'opacity-100' : 'opacity-0'"></div>
+                              :class="hoveredPanelIndex === 2 ? 'opacity-100' : 'opacity-0'"></div>
                       </div>
                     </div>
                     <!-- hitbox (click handled by pendulum wrapper) -->
@@ -272,9 +272,9 @@ const pendulumRef = ref(null)
 const panels = computed(() => [
   { id: 0, slug: 'graphic-design',    label: t.value.panelAbout },
   { id: 3, slug: 'branding',          label: t.value.categories['branding'].title },
+  { id: 4, slug: 'publishings',       label: t.value.categories['publishings'].title },
   { id: 1, slug: 'photography',       label: t.value.categories['photography'].title },
   { id: 2, slug: 'creative-direction',label: t.value.categories['creative-direction'].title },
-  { id: 4, slug: 'publishings',       label: t.value.categories['publishings'].title },
   { id: 5, slug: 'music',             label: t.value.panelMusic }
 ])
 

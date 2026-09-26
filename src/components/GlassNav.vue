@@ -124,8 +124,8 @@ const isMobile = ref(false)
 const isHiddenByModal = ref(false)
 const currentSlug = computed(() => route.params.slug)
 
-// Ordered to match the keychain objects in HomeView (bottlecap → camera → lighter → magazine)
-const categoryOrder = ['branding', 'photography', 'creative-direction', 'publishings']
+// Ordered to match the keychain objects in HomeView
+const categoryOrder = ['branding', 'publishings', 'photography', 'creative-direction']
 
 const checkMobile = () => {
   isMobile.value = window.innerWidth < 768
@@ -198,3 +198,4 @@ const goToCategoryMobile = (slug) => {
   scrollbar-width: none;  /* Firefox */
 }
 </style>
+come 

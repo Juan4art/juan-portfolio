@@ -37,7 +37,7 @@ const translations = {
     exploreProject: 'Explore Project',
     categories: {
       'creative-direction': {
-        title: 'freestyle',
+        title: 'Freestyle',
         description: 'Guiding the creative vision — from concept to final delivery across all touchpoints.',
         items: [
           { title: 'Solene — Film Poster',      tag: 'Film',    desc: 'Photo shooting and post-production for the horror movie poster campaign \'Solene\'.', gallery: ['/images/Solene1.webp', '/images/Solene2.webp', '/images/Solene3.webp', '/images/Solene4.webp'] },
@@ -52,7 +52,7 @@ const translations = {
         ],
       },
       'photography': {
-        title: 'Photography',
+        title: 'Fotografia',
         description: 'Capturing moments and moods — editorial, architectural, and portrait photography.',
         items: [
           { title: 'Live Music Portraits', tag: 'Concert', desc: 'Live concert photography and musical portraits capturing raw energy.', gallery: ['/images/Concert2.webp', '/images/Concert3.webp', '/images/Concert4.webp'] },
@@ -63,7 +63,7 @@ const translations = {
         ],
       },
       'branding': {
-        title: 'Brand design',
+        title: 'Art direction',
         description: 'Building memorable brand identities <br> — strategy, visual systems, and guidelines.',
         items: [
           { title: 'Snickers — Luxury Rebrand', tag: 'Rebranding', tagline: 'Luxury rebrand concept for Snickers.', desc: 'Luxury rebrand concept for Snickers. Stationery, packaging, and editorial layout.', cover: '/images/Snickers7.webp', gallery: ['/images/Snickers20.webp', '/images/Snickers21.webp', '/images/Snickers26.webp', '/images/Snickers25.webp', '/images/Snickers18.webp', '/images/Snickers24.webp', '/images/Snickers17.webp', '/images/Snickers22.webp', '/images/Snickers19.webp', '/images/Snickers7.webp'] },
@@ -73,7 +73,7 @@ const translations = {
         ],
       },
       'publishings': {
-        title: 'publishing',
+        title: 'Editoria',
         description: 'Curated editorial projects — books, zines, and digital publications.',
         items: [
           {
@@ -195,7 +195,7 @@ const translations = {
     exploreProject: 'Esplora Progetto',
     categories: {
       'creative-direction': {
-        title: 'freestyle',
+        title: 'Freestyle',
         description: 'Guidare la visione creativa — dal concept alla consegna finale su tutti i touchpoint.',
         items: [
           { title: 'Solene — Film Poster',       tag: 'Film',    desc: 'Shooting fotografico e post-produzione per la campagna poster del film horror \'Solene\'.', gallery: ['/images/Solene1.webp', '/images/Solene2.webp', '/images/Solene3.webp', '/images/Solene4.webp'] },
@@ -221,7 +221,7 @@ const translations = {
         ],
       },
       'branding': {
-        title: 'Brand design',
+        title: 'Art direction',
         description: 'Costruire identità di marca memorabili <br> — strategia, sistemi visivi e linee guida.',
         items: [
           { title: 'Snickers — Luxury Rebrand', tag: 'Rebranding', tagline: 'Concept di rebranding di lusso per Snickers.', desc: 'Concept per il rebrand di lusso di Snickers. Immagine coordinata, packaging e layout editoriale.', cover: '/images/Snickers7.webp', gallery: ['/images/Snickers20.webp', '/images/Snickers21.webp', '/images/Snickers26.webp', '/images/Snickers25.webp', '/images/Snickers18.webp', '/images/Snickers24.webp', '/images/Snickers17.webp', '/images/Snickers22.webp', '/images/Snickers19.webp', '/images/Snickers7.webp'] },
