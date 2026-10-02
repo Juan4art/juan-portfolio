@@ -198,4 +198,3 @@ const goToCategoryMobile = (slug) => {
   scrollbar-width: none;  /* Firefox */
 }
 </style>
-come 

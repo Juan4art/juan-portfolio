@@ -157,7 +157,10 @@ const translations = {
       langEnglish: 'English',
       langC1: 'C1',
       langSpanish: 'Spanish',
-      langB2: 'B2'
+      langB2: 'B2',
+      contactTitle: 'Contact',
+      contactPhone: 'Phone: 3270746059',
+      contactEmail: 'Email: juan.merla23@gmail.com'
     }
   },
 
@@ -315,7 +318,10 @@ const translations = {
       langEnglish: 'Inglese',
       langC1: 'C1',
       langSpanish: 'Spagnolo',
-      langB2: 'B2'
+      langB2: 'B2',
+      contactTitle: 'Contatti',
+      contactPhone: 'Telefono: 3270746059',
+      contactEmail: 'Email: juan.merla23@gmail.com'
     }
   },
 }

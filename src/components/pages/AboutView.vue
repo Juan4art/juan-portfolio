@@ -87,6 +87,17 @@
           </ul>
         </div>
 
+        <!-- Contact -->
+        <div class="flex flex-col hover-stamp-block">
+          <h2 class="text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[4rem] font-archivo uppercase tracking-tighter leading-none mb-2 break-words hyphens-auto w-full overflow-hidden">
+            <template v-for="({w,i}) in contactBlock.title" :key="'ct'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
+          </h2>
+          <ul class="text-xs sm:text-sm md:text-base font-varela flex flex-col leading-relaxed tracking-tight text-white/90">
+            <li><a href="tel:+393270746059" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.phone" :key="'cp'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
+            <li><a href="mailto:juan.merla23@gmail.com" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.email" :key="'ce'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
+          </ul>
+        </div>
+
       </div>
 
     </div>
@@ -147,6 +158,15 @@ const langBlock = computed(() => {
     `${t.value.aboutText.langSpanish} - ${t.value.aboutText.langB2}`
   ])
   return { title, italian, english, spanish }
+})
+
+const contactBlock = computed(() => {
+  const [title, phone, email] = makeBlock([
+    t.value.aboutText.contactTitle,
+    t.value.aboutText.contactPhone,
+    t.value.aboutText.contactEmail
+  ])
+  return { title, phone, email }
 })
 
 const photoRef = ref(null)
@@ -224,6 +244,6 @@ const EmailIcon = () => h('svg', { fill: 'none', stroke: 'currentColor', viewBox
 const socials = [
   { name: 'GitHub',   link: '#',                        icon: GithubIcon   },
   { name: 'LinkedIn', link: '#',                        icon: LinkedinIcon },
-  { name: 'Email',    link: 'mailto:hello@juanmerla.com', icon: EmailIcon  },
+  { name: 'Email',    link: 'mailto:juan.merla23@gmail.com', icon: EmailIcon  },
 ]
 </script>
