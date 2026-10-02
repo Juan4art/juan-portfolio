@@ -33,7 +33,7 @@
 
       <!-- ── Typography Content (Right Column, Spans 2 columns) ───────── -->
       <div
-        class="md:col-span-2 md:row-span-2 flex flex-col justify-center gap-6 md:gap-8 text-white animate-fade-up z-10 p-6 md:p-10 bg-black/95 border border-white/10 rounded-[2rem] shadow-2xl md:max-h-[80vh] md:overflow-y-auto overflow-visible scrollbar-hide"
+        class="md:col-span-2 md:row-span-2 flex flex-col justify-center gap-6 md:gap-8 text-white animate-fade-up z-10 p-6 md:p-10 bg-black/95 border border-white/10 rounded-[2rem] shadow-2xl overflow-visible scrollbar-hide"
         style="animation-delay: 0.12s; opacity: 0;"
       >
       <!-- Experience -->
@@ -88,14 +88,14 @@
         </div>
 
         <!-- Contact -->
-        <div class="flex flex-col hover-stamp-block">
+        <div class="flex flex-col">
           <h2 class="text-4xl sm:text-5xl md:text-[3.5rem] lg:text-[4rem] font-archivo uppercase tracking-tighter leading-none mb-2 break-words hyphens-auto w-full overflow-hidden">
             <template v-for="({w,i}) in contactBlock.title" :key="'ct'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
           </h2>
           <ul class="text-xs sm:text-sm md:text-base font-varela flex flex-col leading-relaxed tracking-tight text-white/90">
-            <li><a href="tel:+393270746059" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.phone" :key="'cp'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
-            <li><a href="mailto:juan.merla23@gmail.com" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.email" :key="'ce'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
-            <li><template v-for="({w,i}) in contactBlock.city" :key="'cc'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
+            <li class="hover-stamp-block w-fit"><a href="tel:+393270746059" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.phone" :key="'cp'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
+            <li class="hover-stamp-block w-fit"><a href="mailto:juan.merla23@gmail.com" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.email" :key="'ce'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
+            <li class="hover-stamp-block w-fit"><template v-for="({w,i}) in contactBlock.city" :key="'cc'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
           </ul>
         </div>
 
