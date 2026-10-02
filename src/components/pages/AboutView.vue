@@ -1,5 +1,5 @@
 <template>
-  <section class="h-[100dvh] overflow-hidden pt-28 pb-24 px-6 md:px-12 flex flex-col items-center justify-center bg-[url('/JeansBack.webp')] bg-cover bg-center md:bg-fixed bg-scroll">
+  <section class="min-h-screen md:h-[100dvh] overflow-x-hidden md:overflow-hidden pt-28 pb-24 px-6 md:px-12 flex flex-col items-center justify-center bg-[url('/JeansBack.webp')] bg-cover bg-center md:bg-fixed bg-scroll">
 
     <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-6 items-stretch">
       
