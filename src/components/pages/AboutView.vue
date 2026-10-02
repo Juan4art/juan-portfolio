@@ -1,5 +1,5 @@
 <template>
-  <section class="min-h-screen pt-28 pb-24 px-6 md:px-12 flex flex-col items-center justify-center bg-[url('/JeansBack.webp')] bg-cover bg-center md:bg-fixed bg-scroll">
+  <section class="h-[100dvh] overflow-hidden pt-28 pb-24 px-6 md:px-12 flex flex-col items-center justify-center bg-[url('/JeansBack.webp')] bg-cover bg-center md:bg-fixed bg-scroll">
 
     <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-6 items-stretch">
       
@@ -93,9 +93,9 @@
             <template v-for="({w,i}) in contactBlock.title" :key="'ct'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template>
           </h2>
           <ul class="text-xs sm:text-sm md:text-base font-varela flex flex-col leading-relaxed tracking-tight text-white/90">
-            <li class="hover-stamp-block w-fit"><a href="tel:+393270746059" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.phone" :key="'cp'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
-            <li class="hover-stamp-block w-fit"><a href="mailto:juan.merla23@gmail.com" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.email" :key="'ce'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
-            <li class="hover-stamp-block w-fit"><template v-for="({w,i}) in contactBlock.city" :key="'cc'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
+            <li class="hover-stamp-block w-fit whitespace-nowrap"><a href="tel:+393270746059" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.phone" :key="'cp'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
+            <li class="hover-stamp-block w-fit whitespace-nowrap"><a href="mailto:juan.merla23@gmail.com" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.email" :key="'ce'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
+            <li class="hover-stamp-block w-fit whitespace-nowrap"><template v-for="({w,i}) in contactBlock.city" :key="'cc'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
           </ul>
         </div>
 
