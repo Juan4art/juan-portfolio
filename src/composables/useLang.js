@@ -160,7 +160,8 @@ const translations = {
       langB2: 'B2',
       contactTitle: 'Contact',
       contactPhone: 'Phone: 3270746059',
-      contactEmail: 'Email: juan.merla23@gmail.com'
+      contactEmail: 'Email: juan.merla23@gmail.com',
+      contactCity: 'Location: Brescia, Italy'
     }
   },
 
@@ -321,7 +322,8 @@ const translations = {
       langB2: 'B2',
       contactTitle: 'Contatti',
       contactPhone: 'Telefono: 3270746059',
-      contactEmail: 'Email: juan.merla23@gmail.com'
+      contactEmail: 'Email: juan.merla23@gmail.com',
+      contactCity: 'Città: Brescia, Italia'
     }
   },
 }

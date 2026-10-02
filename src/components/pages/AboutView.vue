@@ -95,6 +95,7 @@
           <ul class="text-xs sm:text-sm md:text-base font-varela flex flex-col leading-relaxed tracking-tight text-white/90">
             <li><a href="tel:+393270746059" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.phone" :key="'cp'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
             <li><a href="mailto:juan.merla23@gmail.com" class="hover:text-white transition-colors"><template v-for="({w,i}) in contactBlock.email" :key="'ce'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></a></li>
+            <li><template v-for="({w,i}) in contactBlock.city" :key="'cc'+i"><span class="word-hl" :style="`--i:${i}`">{{ w }}</span>{{ ' ' }}</template></li>
           </ul>
         </div>
 
@@ -161,12 +162,13 @@ const langBlock = computed(() => {
 })
 
 const contactBlock = computed(() => {
-  const [title, phone, email] = makeBlock([
+  const [title, phone, email, city] = makeBlock([
     t.value.aboutText.contactTitle,
     t.value.aboutText.contactPhone,
-    t.value.aboutText.contactEmail
+    t.value.aboutText.contactEmail,
+    t.value.aboutText.contactCity
   ])
-  return { title, phone, email }
+  return { title, phone, email, city }
 })
 
 const photoRef = ref(null)
