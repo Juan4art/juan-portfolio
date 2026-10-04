@@ -163,7 +163,8 @@ const translations = {
       contactTitle: 'Contact',
       contactPhone: 'Phone: 3270746059',
       contactEmail: 'Email: juan.merla23@gmail.com',
-      contactCity: 'Location: Brescia, Italy'
+      contactCity: 'Location: Brescia, Italy',
+      downloadCV: 'Download CV'
     }
   },
 
@@ -327,7 +328,8 @@ const translations = {
       contactTitle: 'Contatti',
       contactPhone: 'Telefono: 3270746059',
       contactEmail: 'Email: juan.merla23@gmail.com',
-      contactCity: 'Città: Brescia, Italia'
+      contactCity: 'Città: Brescia, Italia',
+      downloadCV: 'Scarica CV'
     }
   },
 }

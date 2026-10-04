@@ -99,6 +99,23 @@
           </ul>
         </div>
 
+        <!-- Download CV Button -->
+        <div class="mt-4 md:mt-6 flex justify-end">
+          <a
+            href="/Juan_Merla_CV.pdf"
+            download="Juan_Merla_CV.pdf"
+            class="group relative inline-flex items-center justify-center gap-3 px-6 py-3 md:px-8 md:py-4 bg-white text-black font-archivo uppercase tracking-widest text-xs sm:text-sm md:text-base font-bold overflow-hidden rounded-full transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] w-fit"
+          >
+            <span class="relative z-10 flex items-center gap-2 mix-blend-difference text-white">
+              {{ t.aboutText.downloadCV }}
+              <svg class="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+            </span>
+            <div class="absolute inset-0 bg-black translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300 ease-out rounded-full"></div>
+          </a>
+        </div>
+
       </div>
 
     </div>
