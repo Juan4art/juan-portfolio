@@ -66,7 +66,7 @@ const props = defineProps({
   }
 })
 
-defineEmits(['close'])
+const emit = defineEmits(['close'])
 
 const flipbookWrapperEl = ref(null)
 const flipbookEl = ref(null)
@@ -116,7 +116,7 @@ const initFlipbook = () => {
     minHeight: 372, // Proportional to 581:722
     maxHeight: 870, // Proportional to 581:722 (700 * 722/581 = ~870)
     drawShadow: true,
-    showCover: true,
+    showCover: props.magazine.showCover !== false,
     usePortrait: true, // Use single page portrait mode on mobile
     startPage: 0,
     maxShadowOpacity: 0.5,

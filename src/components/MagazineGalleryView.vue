@@ -1,20 +1,7 @@
 <template>
-  <div class="w-full flex flex-col items-center pb-40">
+  <div class="w-full flex flex-col items-center pb-40 pt-24 md:pt-32">
     
-    <!-- Title / Intro (Optional) -->
-    <div class="relative z-10 w-full max-w-4xl px-8 flex flex-col items-center text-center mt-20 mb-32">
-      <h3 class="text-white/50 font-mono text-sm tracking-[0.3em] uppercase mb-8 flex items-center gap-4">
-        <span class="w-12 h-px bg-white/50"></span>
-        {{ category.title }}
-        <span class="w-12 h-px bg-white/50"></span>
-      </h3>
-      <p class="font-varela text-xl md:text-2xl leading-relaxed text-white/80 max-w-2xl">
-        {{ category.description }}
-      </p>
-      
-      <!-- Vertical connecting line -->
-      <div class="w-px h-24 bg-gradient-to-b from-white/40 to-transparent mt-16"></div>
-    </div>
+    <!-- Title / Intro removed -->
 
     <!-- Magazine Grid -->
     <div class="w-full max-w-7xl px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-24 relative z-10">

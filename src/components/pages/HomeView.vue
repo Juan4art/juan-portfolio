@@ -666,12 +666,16 @@ onMounted(() => {
   }
 
   rafId = requestAnimationFrame(tick)
-  const checkLoaded = setInterval(() => {
-    if (document.body.classList.contains('is-loaded')) {
-      clearInterval(checkLoaded)
-      setTimeout(() => cardsInteractionEnabled = true, 1500)
-    }
-  }, 100)
+  if (document.body.classList.contains('is-loaded')) {
+    cardsInteractionEnabled = true
+  } else {
+    const checkLoaded = setInterval(() => {
+      if (document.body.classList.contains('is-loaded')) {
+        clearInterval(checkLoaded)
+        setTimeout(() => cardsInteractionEnabled = true, 1500)
+      }
+    }, 100)
+  }
 })
 
 onBeforeUnmount(() => {

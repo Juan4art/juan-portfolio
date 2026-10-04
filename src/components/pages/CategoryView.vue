@@ -133,9 +133,16 @@
             <PoemNarrativeView :category="{ items: [activeItem] }" />
           </div>
 
+          <!-- Continuous Vertical Scroll Container -->
+          <div v-if="activeItem.isContinuous || (isMobile && activeItem.mobileVertical)" class="w-full h-full pointer-events-auto overflow-y-auto custom-scrollbar relative z-[10] bg-[#030303] flex flex-col items-center pt-24 md:pt-32 pb-24 px-4 md:px-12">
+            <div class="w-full max-w-6xl flex flex-col gap-0 shadow-2xl">
+              <img v-for="(img, idx) in activeItem.gallery" :key="idx" :src="img" :alt="activeItem.title + ' page ' + (idx + 1)" class="w-full h-auto object-contain block m-0 p-0" loading="lazy" />
+            </div>
+          </div>
+
           <!-- Swiper Container (Standard Layout) -->
           <swiper
-            v-else-if="activeItem.gallery"
+            v-else-if="activeItem.gallery && !(isMobile && activeItem.mobileVertical)"
             :modules="[SwiperPagination, SwiperKeyboard, SwiperMousewheel]"
             :slides-per-view="1"
             :space-between="0"
@@ -150,7 +157,7 @@
             <swiper-slide v-for="(img, idx) in activeItem.gallery" :key="idx" class="w-full h-full cursor-auto" @click.self="closeDetail">
               <div class="w-full h-full flex items-center justify-center p-8 md:p-24 pointer-events-none" @click.self="closeDetail">
                 <template v-if="img.endsWith('.mp4')">
-                  <video :src="img" :title="activeItem.title" class="max-w-full max-h-full object-contain pointer-events-auto cursor-default" autoplay loop muted playsinline disablePictureInPicture @click.stop></video>
+                  <video :src="img" :title="activeItem.title" class="max-w-full max-h-full object-contain pointer-events-auto cursor-default" autoplay loop playsinline disablePictureInPicture @click.stop></video>
                 </template>
                 <template v-else>
                   <img :src="img" :alt="activeItem.title" class="max-w-full max-h-full object-contain pointer-events-auto cursor-default" @click.stop />
@@ -174,7 +181,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useLang } from '../../composables/useLang.js'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -191,6 +198,20 @@ import FlipbookViewer from '../FlipbookViewer.vue'
 const route = useRoute()
 const router = useRouter()
 const { t } = useLang()
+
+const isMobile = ref(false)
+const updateMobile = () => {
+  isMobile.value = window.innerWidth < 768
+}
+
+onMounted(() => {
+  updateMobile()
+  window.addEventListener('resize', updateMobile)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateMobile)
+})
 
 const slug = computed(() => route.params.slug)
 
@@ -260,6 +281,8 @@ const openDetail = (index) => {
     tag: p.item.tag,
     desc: p.item.desc,
     gallery: p.item.gallery || [getProjectImage(slug.value, p.index)],
+    isContinuous: p.item.isContinuous,
+    mobileVertical: p.item.mobileVertical,
     initialSlide: 0
   }
 }
@@ -274,6 +297,8 @@ const openCustomDetail = (payload) => {
     desc: project.desc,
     gallery: project.gallery,
     cover: project.cover,
+    isContinuous: project.isContinuous,
+    mobileVertical: project.mobileVertical,
     initialSlide: initialSlide,
     isMacroProject: project.isMacroProject,
     subProjects: project.subProjects
