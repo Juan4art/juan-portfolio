@@ -96,7 +96,7 @@
                        :class="{ 'brightness-110': hoveredPanelIndex === 3 }">
                      <!-- Keyring Hole -->
                      <div class="absolute -top-3 left-1/2 w-6 h-6 rounded-full border-[4px] border-[#999] shadow-[inset_0_1px_2px_rgba(0,0,0,0.8)] bg-transparent z-20 pointer-events-none" style="transform: translateX(-50%) translateZ(2px);"></div>
-                     <img src="/Camera.webp" alt="Photography Camera" class="w-[350px] h-[225px] max-w-none object-contain pointer-events-none -rotate-90" loading="lazy" />
+                     <img src="/Camera.webp" alt="Photography Camera" class="w-[350px] h-[225px] max-w-none object-contain pointer-events-none -rotate-90" />
 
                   </div>
 
@@ -115,7 +115,7 @@
                     <!-- Massive ID Photo -->
                     <div class="absolute left-1/2 top-[45px] -translate-x-1/2 w-[125px] h-[165px] border-[3px] border-white/80 rounded-[8px] bg-white shadow-sm overflow-hidden grayscale pointer-events-none z-20">
                        <!-- Removed the sketches.png so the photo is clean, based on user feedback -->
-                       <img src="/io2.webp" alt="Profile" class="absolute inset-0 w-full h-full object-cover object-top opacity-90" style="will-change: filter;" loading="lazy" />
+                       <img src="/io2.webp" alt="Profile" class="absolute inset-0 w-full h-full object-cover object-top opacity-90" style="will-change: filter;" />
                     </div>
 
                     <!-- Redacted text lines below the photo -->
@@ -150,7 +150,7 @@
                     <div class="w-full h-full relative transition-all duration-300 pointer-events-none" 
                          :class="{ 'brightness-110': hoveredPanelIndex === 4 }">
                        <!-- Front (Purple OCHO) -->
-                       <img src="/front.webp" alt="Creative Direction Front" class="absolute inset-0 w-full h-full object-contain pointer-events-none" style="will-change: filter;" loading="lazy" />
+                       <img src="/front.webp" alt="Creative Direction Front" class="absolute inset-0 w-full h-full object-contain pointer-events-none" style="will-change: filter;" />
                     </div>
 
                     <!-- hitbox (click handled by pendulum wrapper) -->
@@ -167,7 +167,7 @@
                           style="transform-style: preserve-3d; transform: rotateY(5deg) rotateZ(-3deg);"
                           :class="{ 'rotate-y-[15deg] -rotate-x-[10deg]': hoveredPanelIndex === 1 }">
                        <!-- Transparent PNG Image -->
-                       <img src="/branding.webp" alt="Branding" class="w-full h-full object-contain pointer-events-none" style="will-change: filter;" loading="lazy" />
+                       <img src="/branding.webp" alt="Branding" class="w-full h-full object-contain pointer-events-none" style="will-change: filter;" />
                        
                        <!-- 3D Gloss / Specular Overlay -->
                        <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 transition-opacity duration-700 pointer-events-none rounded-full"
@@ -196,7 +196,7 @@
                       
                       <!-- Front Cover -->
                       <div class="absolute inset-0 rounded-r-sm overflow-hidden bg-[#111] shadow-[inset_2px_0_5px_rgba(255,255,255,0.2)] border-l-2 border-l-black/80">
-                         <img src="/magazine.webp" alt="Publishings Magazine" class="w-full h-full object-cover pointer-events-none" style="will-change: filter;" loading="lazy" />
+                         <img src="/magazine.webp" alt="Publishings Magazine" class="w-full h-full object-cover pointer-events-none" style="will-change: filter;" />
                          <!-- Spine fold shading (Left edge) -->
                          <div class="absolute left-0 top-0 bottom-0 w-[15px] bg-gradient-to-r from-black/60 via-black/10 to-transparent pointer-events-none"></div>
                          <!-- Specular gloss overlay -->
@@ -217,7 +217,7 @@
                      <div class="w-full h-full relative pointer-events-none transition-transform duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)]" 
                           style="transform-style: preserve-3d; transform: rotateY(4deg) rotateZ(-2deg);"
                           :class="{ 'rotate-y-[12deg] -rotate-x-[5deg]': hoveredPanelIndex === 5 }">
-                       <img src="/cassette.webp" alt="Awesome Mix Tape" class="w-full h-full object-contain pointer-events-none" loading="lazy" />
+                       <img src="/cassette.webp" alt="Awesome Mix Tape" class="w-full h-full object-contain pointer-events-none" />
                        
                        <!-- 3D Gloss / Specular Overlay -->
                        <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 transition-opacity duration-700 pointer-events-none rounded-[8px]"

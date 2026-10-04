@@ -14,7 +14,7 @@
         @click.prevent="goTo('/')" 
         class="pointer-events-auto transition-transform duration-300 hover:scale-105 z-[100]"
       >
-        <img src="/logo.webp" alt="blu stoodio" class="h-10 md:h-12 w-auto select-none drop-shadow-md brightness-0 invert" loading="lazy" />
+        <img src="/logo.webp" alt="blu stoodio" class="h-10 md:h-12 w-auto select-none drop-shadow-md brightness-0 invert" />
       </a>
       <div class="hidden md:block pointer-events-none">
         <span class="text-xs tracking-[0.25em] uppercase font-semibold text-white" style="text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8), 0 3px 12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 0, 0, 0.6);">

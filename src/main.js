@@ -5,14 +5,13 @@ import App from './App.vue'
 import './assets/main.css'
 
 inject()
-
-import HomeView     from './components/pages/HomeView.vue'
-import AboutView    from './components/pages/AboutView.vue'
-import CategoryView from './components/pages/CategoryView.vue'
-import PlaylistView from './components/pages/PlaylistView.vue'
+const HomeView     = () => import('./components/pages/HomeView.vue')
+const AboutView    = () => import('./components/pages/AboutView.vue')
+const CategoryView = () => import('./components/pages/CategoryView.vue')
+const PlaylistView = () => import('./components/pages/PlaylistView.vue')
 
 import Particles from "@tsparticles/vue3"
-import { loadFull } from "tsparticles"
+import { loadSlim } from "@tsparticles/slim"
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -57,7 +56,7 @@ const app = createApp(App)
 app.use(router)
 app.use(Particles, {
   init: async engine => {
-    await loadFull(engine)
+    await loadSlim(engine)
   }
 })
 app.mount('#app')
