@@ -95,13 +95,6 @@ const translations = {
             isMacroProject: true,
             subProjects: [
               { 
-                title: 'Testo & Specchio', 
-                tag: 'Book', 
-                desc: 'An overarching project derived from a poignant poem exploring mental suffering, expressed through multiple visual mediums.', 
-                cover: '/images/Faro4.webp', 
-                gallery: ['/images/Faro4.webp']
-              },
-              { 
                 title: 'Walls — Selene Vexley', 
                 tag: 'Book', 
                 desc: 'A standalone dystopian novel exploring social isolation, inner resistance, and mental health under a totalitarian regime.', 
@@ -265,13 +258,6 @@ const translations = {
             cover: '/images/WallsFront.webp',
             isMacroProject: true,
             subProjects: [
-              { 
-                title: 'Testo & Specchio', 
-                tag: 'Libro', 
-                desc: 'Un progetto derivato da una poesia sulla sofferenza mentale, esplorato attraverso molteplici forme visive e mediatiche.', 
-                cover: '/images/Faro4.webp', 
-                gallery: ['/images/Faro4.webp']
-              },
               { 
                 title: 'Walls — Selene Vexley', 
                 tag: 'Libro', 

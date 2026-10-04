@@ -2,7 +2,7 @@
   <div ref="containerRef" class="w-full bg-transparent font-archivo text-white flex flex-col items-center pb-40 relative">
     
     <!-- Intro: The Poem Concept -->
-    <div class="relative z-10 w-full max-w-4xl px-8 flex flex-col items-center text-center mt-20 mb-32 anim-item">
+    <div class="relative z-10 w-full max-w-4xl px-8 flex flex-col items-center text-center mt-[280px] md:mt-20 mb-32 anim-item">
       <h3 class="text-[#e4ef39] font-mono text-sm tracking-[0.3em] uppercase mb-8 flex items-center gap-4">
         <span class="w-12 h-px bg-[#e4ef39]"></span>
         {{ t.poemTitle }}
